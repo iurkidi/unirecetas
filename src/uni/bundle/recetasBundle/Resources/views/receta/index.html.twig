@@ -1,38 +1,29 @@
 {% extends 'uniRecetasBundle::layout.html.twig' %}
 
 {% block central %}
-    <h1>receta list</h1>
-
-    <table class="records_list">
-        <thead>
-            <tr>                
-                <th>Titulo</th>
-                <th>Elaboracion</th>
-                <th>Foto</th>
-                <th>Numpers</th>
-                <th>Autor</th>
-                <th>Categoria</th>                
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('receta_show', { 'id': entity.id }) }}">{{ entity.titulo }}</a></td>                
-                <td>{{ entity.elaboracion }}</td>
-                <td>{{ entity.foto }}</td>
-                <td>{{ entity.numpers }}</td>
-                <td>{{ entity.aut.nombre }}</td>
-                <td>{{ entity.categ.titulo }}</td>                
-            </tr>
+    
+    {% for entity in entities %}                  
+            
+            {% if loop.index <= "4" %}
+            <div class="{{'col'~ loop.index}}">                        
+                <h2><a href="{{path('receta_show',{'id': entity.id} )}}">
+                           {{ entity.titulo }}
+                    </a></h2>                      
+                   <p> ({{ entity.categ.titulo | upper }}) {{ entity.elaboracion | truncate (100)}}  </p>
+                   <br> <img src="{{ asset('bundles/unirecetas/img/'~ entity.foto  ~ '') }}"/>                                                                     
+            </div>
+            {# METE IF PARA SACAR EL RESTO DE NOTICIAS EN FILA SIN FOTO#}
+                   {% elseif loop.index > "4" %}                         
+                       <div class="col5 textoizq">
+                            <br>
+                           <a href="{{path('receta_show',{'id': entity.id} )}}" class="negrita separarIzq20">
+                           {{ entity.titulo }}
+                            </a>  
+                            <p class="separarIzq20">({{ entity.categ.titulo | upper }}) {{ entity.elaboracion | truncate (100)}} </p>
+                       </div>    
+                    {%endif%}
+            
         {% endfor %}
-        </tbody>
-    </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('receta_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+       
     {% endblock %}
