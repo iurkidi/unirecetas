@@ -44,11 +44,11 @@ class recetaController extends Controller
         $query = $em->createQuery($dql);
         $query->setParameter('categoria',$cat);
         $recetas = $query->getResult();*/
-        $entities = $em->getRepository('uniRecetasBundle:receta')->  findByCateg($id);
+        $eRecetas = $em->getRepository('uniRecetasBundle:receta')->  findByCateg($id);
         $eCategoria = $em->getRepository('uniRecetasBundle:categoria')->  findOneById($id);
                
         return $this->render('uniRecetasBundle:receta:indexporcat.html.twig', array(
-            'recetas' => $entities,
+            'recetas' => $eRecetas,
             'ecategoria' => $eCategoria,
             'categoria' => $id
         ));
