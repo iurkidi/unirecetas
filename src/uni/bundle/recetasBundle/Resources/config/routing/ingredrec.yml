@@ -1,0 +1,30 @@
+ingredrec:
+    path:     /
+    defaults: { _controller: "uniRecetasBundle:ingredrec:index" }
+
+ingredrec_show:
+    path:     /{id}/show
+    defaults: { _controller: "uniRecetasBundle:ingredrec:show" }
+
+ingredrec_new:
+    path:     /new
+    defaults: { _controller: "uniRecetasBundle:ingredrec:new" }
+
+ingredrec_create:
+    path:     /create
+    defaults: { _controller: "uniRecetasBundle:ingredrec:create" }
+    requirements: { _method: post }
+
+ingredrec_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "uniRecetasBundle:ingredrec:edit" }
+
+ingredrec_update:
+    path:     /{id}/update
+    defaults: { _controller: "uniRecetasBundle:ingredrec:update" }
+    requirements: { _method: post|put }
+
+ingredrec_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "uniRecetasBundle:ingredrec:delete" }
+    requirements: { _method: post|delete }

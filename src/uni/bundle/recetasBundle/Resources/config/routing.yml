@@ -1,0 +1,23 @@
+uni_recetas_ingredrec:
+    resource: "@uniRecetasBundle/Resources/config/routing/ingredrec.yml"
+    prefix:   /ingredrec
+
+uni_recetas_ingrediente:
+    resource: "@uniRecetasBundle/Resources/config/routing/ingrediente.yml"
+    prefix:   /ingrediente
+
+uni_recetas_receta:
+    resource: "@uniRecetasBundle/Resources/config/routing/receta.yml"
+    prefix:   /receta
+
+uni_recetas_autor:
+    resource: "@uniRecetasBundle/Resources/config/routing/autor.yml"
+    prefix:   /autor
+
+uni_recetas_categoria:
+    resource: "@uniRecetasBundle/Resources/config/routing/categoria.yml"
+    prefix:   /categoria
+
+uni_recetas_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: uniRecetasBundle:Default:index }

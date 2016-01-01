@@ -1,0 +1,30 @@
+ingrediente:
+    path:     /
+    defaults: { _controller: "uniRecetasBundle:ingrediente:index" }
+
+ingrediente_show:
+    path:     /{id}/show
+    defaults: { _controller: "uniRecetasBundle:ingrediente:show" }
+
+ingrediente_new:
+    path:     /new
+    defaults: { _controller: "uniRecetasBundle:ingrediente:new" }
+
+ingrediente_create:
+    path:     /create
+    defaults: { _controller: "uniRecetasBundle:ingrediente:create" }
+    requirements: { _method: post }
+
+ingrediente_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "uniRecetasBundle:ingrediente:edit" }
+
+ingrediente_update:
+    path:     /{id}/update
+    defaults: { _controller: "uniRecetasBundle:ingrediente:update" }
+    requirements: { _method: post|put }
+
+ingrediente_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "uniRecetasBundle:ingrediente:delete" }
+    requirements: { _method: post|delete }

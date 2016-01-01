@@ -1,0 +1,30 @@
+autor:
+    path:     /
+    defaults: { _controller: "uniRecetasBundle:autor:index" }
+
+autor_show:
+    path:     /{id}/show
+    defaults: { _controller: "uniRecetasBundle:autor:show" }
+
+autor_new:
+    path:     /new
+    defaults: { _controller: "uniRecetasBundle:autor:new" }
+
+autor_create:
+    path:     /create
+    defaults: { _controller: "uniRecetasBundle:autor:create" }
+    requirements: { _method: post }
+
+autor_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "uniRecetasBundle:autor:edit" }
+
+autor_update:
+    path:     /{id}/update
+    defaults: { _controller: "uniRecetasBundle:autor:update" }
+    requirements: { _method: post|put }
+
+autor_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "uniRecetasBundle:autor:delete" }
+    requirements: { _method: post|delete }

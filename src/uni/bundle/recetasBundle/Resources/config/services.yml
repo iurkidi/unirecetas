@@ -1,0 +1,4 @@
+services:
+#    uni_recetas.example:
+#        class: uni\bundle\recetasBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

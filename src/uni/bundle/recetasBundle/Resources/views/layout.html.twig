@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+
+ {% block cuerpo %}
+ 
+        <div id="menuSup">
+            {% block menuSup %}
+                
+             <ul id="menu-horizontal">
+                <li><a href="{{path('receta')}}" title="Texto">INICIO</a>                
+                <li><a href="#" title="Texto">Entrantes</a>
+                    <ul>
+                        <li><a href="{{path('receta_categ_index',{'id': 1} )}}" title="Texto">Picoteo</a></li>
+                        <li><a href="{{path('receta_categ_index',{'id': 2} )}}" title="Texto">Ensaladas</a></li>
+                        <li><a href="{{path('receta_categ_index',{'id': 3} )}}" title="Texto">Sopas</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{path('receta_categ_index',{'id': 4} )}}" title="Texto">Cuchara</a></li>
+                <li><a href="{{path('receta_categ_index',{'id': 5} )}}" title="Texto">Tenedor</a></li>
+                <li><a href="{{path('receta_categ_index',{'id': 6} )}}" title="Texto">Postre</a></li>                              
+                <li><a href="#" title="Texto">Buscar</a>
+                    <ul>{#{{path('receta_buscar_autor')}}#}
+                        <li><a href="#" title="Texto">Por autor</a></li>                        
+                    </ul>
+                </li>
+                <li><a href="#" title="Texto">Administracion</a>
+                    <ul>
+                        <li><a href="{{path('categoria')}}" title="Texto">Categorias</a></li>
+                        <li><a href="{{path('autor')}}" title="Texto">Autores</a></li>
+                        <li><a href="{{path('ingrediente')}}" title="Texto">Ingredientes</a></li>
+                    </ul>
+                </li>
+             </ul>
+             
+            {% endblock %}
+        </div>
+ 
+        
+        <div id="central">
+            
+            {% block central %}
+            
+            {% endblock %}
+            
+        </div>
+ 
+ 
+ {% endblock %}

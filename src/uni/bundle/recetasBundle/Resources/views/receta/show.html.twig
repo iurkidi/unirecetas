@@ -1,0 +1,52 @@
+{% extends 'uniRecetasBundle::layout.html.twig' %}
+
+{% block central -%}
+    <h1>receta</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ entity.titulo }}</td>
+            </tr>
+            <tr>
+                <th>Elaboracion</th>
+                <td>{{ entity.elaboracion }}</td>
+            </tr>
+            <tr>
+                <th>Foto</th>
+                <td><img src="{{ asset('bundles/unirecetas/img/'~ entity.foto  ~ '') }}"/></td>
+            </tr>
+            <tr>
+                <th>Numpers</th>
+                <td>{{ entity.numpers }}</td>
+            </tr>
+            <tr>
+                <th>Autor</th>
+                <td>{{ entity.aut.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Categoria</th>
+                <td>{{ entity.categ.titulo }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h1>Ingredientes</h1>
+    {% for ingred in entity.recingr %}
+        {{ ingred.cantidad }} {{ ingred.unidad }} {{ ingred.iingrediente.nombre }}<br>
+    {% endfor %}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('receta') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('receta_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

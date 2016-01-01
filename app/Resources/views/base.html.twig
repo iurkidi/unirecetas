@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}uniRecetas{% endblock %}</title>
+        
+        {% block stylesheets %}
+                <link href="{{ asset('bundles/unirecetas/css/webrecetas.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
+        
+        {# Ahora viene el javascript #}
+
+        <script type="text/javascript">
+                    </script>
+
+{# Fin del javascript #}
+        
+    </head>
+    <body>
+        
+        
+        <div id="cabecera">
+            {% block cabecera %}
+                <h1 class="letralogo textocentrado"> uniRecetas </h1>  
+            {% endblock %}
+        </div>
+        
+        <div id="contenFormularios">
+            {% block cuerpo %}
+                Cuerpo
+            {% endblock %} 
+        </div>
+               {#<li><a href="{{path('uni_web_noticias_about')}}" title="Texto">ABOUT</a></li>#}           
+        <div id="pie">
+            {% block pie %}
+                <p class="izquierda separarIzq15 negrita">2015/2016</p>
+                <p class="derecha separarDcha20 negrita">Itziar Urkidi</p>
+            {% endblock %}
+        </div>
+       
+    </body>
+</html>

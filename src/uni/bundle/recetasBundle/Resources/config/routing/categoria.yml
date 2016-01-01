@@ -1,0 +1,30 @@
+categoria:
+    path:     /
+    defaults: { _controller: "uniRecetasBundle:categoria:index" }
+
+categoria_show:
+    path:     /{id}/show
+    defaults: { _controller: "uniRecetasBundle:categoria:show" }
+
+categoria_new:
+    path:     /new
+    defaults: { _controller: "uniRecetasBundle:categoria:new" }
+
+categoria_create:
+    path:     /create
+    defaults: { _controller: "uniRecetasBundle:categoria:create" }
+    requirements: { _method: post }
+
+categoria_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "uniRecetasBundle:categoria:edit" }
+
+categoria_update:
+    path:     /{id}/update
+    defaults: { _controller: "uniRecetasBundle:categoria:update" }
+    requirements: { _method: post|put }
+
+categoria_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "uniRecetasBundle:categoria:delete" }
+    requirements: { _method: post|delete }

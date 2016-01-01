@@ -1,0 +1,4 @@
+uni_recetas:
+    resource: "@uniRecetasBundle/Resources/config/routing.yml"
+    prefix:   /
+
