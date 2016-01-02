@@ -1,0 +1,67 @@
+{% extends 'uniRecetasBundle::layout.html.twig' %}
+
+{% block central %}
+    <h1>Nueva receta</h1>
+ 
+    <form id="idFormRec" action="{{ path('receta_save_reccat') }}" method="post">
+        
+    <div class="detalleNot">
+        <div class="LineaFormulario"></div>
+        
+        <div class="LineaFormulario">            
+            <label for="idTituloRec">Titulo:</label>
+            <input type="text" id="idTituloRec" name="titulo"/>           
+        </div>
+        
+        <div class="LineaFormulario"></div>       
+
+        <div class="LineaFormulario">            
+            <label for="idFotoPRec">Foto pequeña:</label>
+            <input type="text" id="idFotoPRec" name="fotop"/>
+        </div>
+        
+        <div class="LineaFormulario"></div>  
+        
+        <div class="LineaFormulario">            
+            <label for="idFotoRec">Foto:</label>
+            <input type="text" id="idFotoRec" name="foto"/>
+        </div>
+        
+        <div class="LineaFormulario">            
+            <label for="idAutorRec">Autor:</label>
+            <select name="idAutorRec">                         
+                     {% for entity in entities %}
+                        <option value="{{ entity.id }}">{{ entity.nombre }} {{ entity.apellidos }} ({{ entity.restaurante }})</option>                        
+                     {% endfor %}
+            </select>  
+        </div>
+            
+        <div class="LineaFormulario"></div>
+        
+        <div class="LineaFormulario">            
+            <label for="idNumPers">Numero de personas:</label>
+            <input type="text" id="idNumPers" name="numpers"/>           
+        </div>
+
+        <div class="LineaFormulario">            
+            <label for="idElab">Elaboración:</label>
+            <textarea id="idElab" name="textElab" rows="10" cols="50">Elaboración de la receta</textarea>
+        </div>
+
+        <div class="LineaFormulario"></div>
+        <div class="LineaFormulario"></div>
+        <input type="hidden" name="idCat" value={{idCat}}/>
+        
+        <div class="LineaFormulario">
+            <input type="submit" name="Guardar" value="Guardar"/>
+        </div>
+        
+        <div class="LineaFormulario">
+            <a href="{{ path('receta_categ_index', { 'id': idCat }) }}">
+               Volver atras
+           </a>
+        </div>
+    </div>
+    </form>           
+
+{% endblock %}

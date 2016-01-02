@@ -58,6 +58,87 @@ class recetaController extends Controller
         ));
     }
     
+    public function newRecCatAction($id)
+    {
+//        REDIRIGIR DIRECTAMENTE A LA PAGINA DE NUEVO Q SE HARA UN FORM A PIñON.
+//        PASAR EL ID DE LA CATEGORIA PARA GUARDARLO LUEGO
+//
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('uniRecetasBundle:autor')->findBy(
+             array(), 
+             array('apellidos' => 'ASC','nombre' => 'ASC')
+           );
+        
+        return $this->render('uniRecetasBundle:receta:newreccat.html.twig', array(
+            'idCat' => $id,  
+            'entities' => $entities,
+        ));
+    }
+    
+        /**
+     * Saves a new receta para una Categoria CONCRETA.
+     *
+     */
+    public function saveRecCatAction(Request $request)
+    {        
+        $eReceta= new receta();
+        $titulo= $request->request->get('titulo');
+        $eReceta->setTitulo($titulo);
+        
+        $textElab= $request->request->get('textElab');
+        $eReceta->setElaboracion($textElab);
+                
+        $foto= $request->request->get('foto');
+        $eReceta->setFoto($foto);
+        
+        $fotop= $request->request->get('fotop');
+        $eReceta->setFotoPeq($fotop);
+        
+        $eReceta->setFechaPub(new \DateTime("now"));
+        
+        $numpers= $request->request->get('numpers');
+        $eReceta->setNumpers($numpers);
+        
+        $em = $this->getDoctrine()->getManager();
+        
+        $autor= $request->request->get('idAutorRec');        
+        $eAutor = $em->getRepository('uniRecetasBundle:autor')->findOneById($autor);
+        if (!$eAutor) {
+            throw $this->createNotFoundException('Unable to find autor relacionado.');
+        }
+        $eReceta->setAut($eAutor); 
+        
+        $id= $request->request->get('idCat');
+        //echo($id);        
+        $eCat = $em->getRepository('uniRecetasBundle:categoria')->  findOneById($id);
+        if (!$eCat) {
+            throw $this->createNotFoundException('Unable to find categoria relacionado.');
+        }
+        $eReceta->setCateg($eCat);                                      
+                
+        $em->persist($eReceta);
+        $em->flush();
+
+        
+        //DA ERROR AL REDIRIGIR A INDEXCATEGORIA
+//        $eRecetas = $em->getRepository('uniRecetasBundle:receta')->  findByCateg($id);                       
+//        return $this->render('uniRecetasBundle:receta:indexporcat.html.twig', array(
+//            'recetas' => $eRecetas,
+//            'ecategoria' => $eCat,
+//            'categoria' => $id
+//        ));
+        
+        $entities = $em->getRepository('uniRecetasBundle:receta')->findBy(
+             array(), 
+             array('fechaPub' => 'DESC')
+           );
+
+        return $this->render('uniRecetasBundle:receta:index.html.twig', array(
+            'entities' => $entities,
+        ));
+    }
+    
     /**
      * Creates a new receta entity.
      *

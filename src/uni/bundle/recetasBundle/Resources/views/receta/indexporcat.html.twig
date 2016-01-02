@@ -28,8 +28,8 @@
         {% endfor %}
         
 
-        <div class="LineaFormulario">   {#AQUI HAY QUE PASAR EL TIPO DE RECETA#}                            
-            <a href="{{ path('receta_new') }}"> Nueva receta</a>                             
+        <div class="LineaFormulario">                          
+            <a href="{{ path('receta_new_reccat',{'id': categoria} ) }}"> Nueva receta</a>                             
         </div>
     
 {% endblock %}

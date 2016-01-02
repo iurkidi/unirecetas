@@ -32,3 +32,12 @@ receta_delete:
     path:     /{id}/delete
     defaults: { _controller: "uniRecetasBundle:receta:delete" }
     requirements: { _method: post|delete }
+
+receta_new_reccat:
+    path:     /{id}/newreccat
+    defaults: { _controller: "uniRecetasBundle:receta:newRecCat" }    
+    
+receta_save_reccat:
+    path:     /save_reccat
+    defaults: { _controller: "uniRecetasBundle:receta:saveRecCat" }
+    requirements: { _method: post|put }
