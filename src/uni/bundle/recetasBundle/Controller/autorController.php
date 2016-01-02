@@ -32,10 +32,12 @@ class autorController extends Controller
            );
         
         $recetasAutor=new ArrayCollection();
+        $nomAutor=null;
 
         return $this->render('uniRecetasBundle:autor:buscarAutor.html.twig', array(
             'entities' => $entities,
             'recetasAutor' => $recetasAutor,
+            'nomAutor' => $nomAutor,
         ));
     }
     
@@ -46,8 +48,9 @@ class autorController extends Controller
     public function buscarAutorRespAction(Request $req)
     {
         $idAutor = $req->request->get('nombre');
+        $nomAutor = $req->request->get('nomOculto');
         $em = $this->getDoctrine()->getManager();
-        
+        //echo($nomAutor);
         
         $dql = "select r from uniRecetasBundle:receta r where r.aut = :idAutor";
         $query = $em->createQuery($dql);
@@ -64,6 +67,7 @@ class autorController extends Controller
         return $this->render('uniRecetasBundle:autor:buscarAutor.html.twig', array(
             'entities' => $entities,
             'recetasAutor' => $recetasAutor,
+            'nomAutor' => $nomAutor,
         ));
     }
     

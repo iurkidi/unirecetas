@@ -5,7 +5,13 @@
     {#//QUITAR ESTE CODIGO E IMPORTAR EL FICHERO JS#}
 <script type="text/javascript">
     function submitform(obj) {
+        var s=document.forms["selectCats"].nombre;
+        document.forms["selectCats"].nomOculto.value=s.options[s.selectedIndex].text;
         document.forms["selectCats"].submit();
+    }
+    
+    function fncCargarSelect(){
+       
     }
 </script>
 
@@ -21,15 +27,22 @@
                      {% endfor %}
                      </select>                                          
              </div>
+             <input type="hidden" id="nomOculto" name="nomOculto" value=""/>
         </form>
-              
-{% for entity in recetasAutor %}                     
+    
+    <div class="LineaFormulario">  </div>
+    <div class="LineaFormulario">  </div>          
+ 
+   {% if nomAutor is not null%}
+     <h1>Recetas de {{nomAutor}}</h1>
+     {% for entity in recetasAutor %}                     
         <div class="LineaFormulario">  
-            <a href="{{path('receta_show',{'id': entity.id} )}}">
+            <h2><a href="{{path('receta_show',{'id': entity.id} )}}">
                            {{ entity.titulo }}
                     </a></h2>                      
                    <p> ({{ entity.categ.titulo | upper }}) {{ entity.elaboracion | truncate (100)}}  </p>
         </div>
  {% endfor %}
+ {%endif %}
     
 {% endblock %}
