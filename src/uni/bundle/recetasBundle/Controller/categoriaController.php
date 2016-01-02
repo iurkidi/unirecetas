@@ -101,11 +101,11 @@ class categoriaController extends Controller
             throw $this->createNotFoundException('Unable to find categoria entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+//        $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('uniRecetasBundle:categoria:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+//            'delete_form' => $deleteForm->createView(),
         ));
     }
 

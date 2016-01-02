@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use uni\bundle\recetasBundle\Entity\autor;
 use uni\bundle\recetasBundle\Form\autorType;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * autor controller.
  *
@@ -15,6 +17,56 @@ use uni\bundle\recetasBundle\Form\autorType;
 class autorController extends Controller
 {
 
+    
+    /**
+     * Carga select autores en la pagina de busqueda de autores.
+     *
+     */
+    public function buscarAutorAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('uniRecetasBundle:autor')->findBy(
+             array(), 
+             array('apellidos' => 'ASC','nombre' => 'ASC')
+           );
+        
+        $recetasAutor=new ArrayCollection();
+
+        return $this->render('uniRecetasBundle:autor:buscarAutor.html.twig', array(
+            'entities' => $entities,
+            'recetasAutor' => $recetasAutor,
+        ));
+    }
+    
+    /**
+     * Respuesta de pagina de busqueda de autores.
+     *
+     */
+    public function buscarAutorRespAction(Request $req)
+    {
+        $idAutor = $req->request->get('nombre');
+        $em = $this->getDoctrine()->getManager();
+        
+        
+        $dql = "select r from uniRecetasBundle:receta r where r.aut = :idAutor";
+        $query = $em->createQuery($dql);
+        $query->setParameter('idAutor', $idAutor);
+        $recetasAutor = $query->getResult();
+        
+        $entities = $em->getRepository('uniRecetasBundle:autor')->findBy(
+             array(), 
+             array('apellidos' => 'ASC','nombre' => 'ASC')
+           );
+
+//        $recetasAutor = $em->getRepository('uniRecetasBundle:recetas')->findByAutor($idAutor);
+
+        return $this->render('uniRecetasBundle:autor:buscarAutor.html.twig', array(
+            'entities' => $entities,
+            'recetasAutor' => $recetasAutor,
+        ));
+    }
+    
     /**
      * Lists all autor entities.
      *

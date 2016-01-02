@@ -1,0 +1,35 @@
+{% extends 'uniRecetasBundle::layout.html.twig' %}
+
+{% block central %}
+          
+    {#//QUITAR ESTE CODIGO E IMPORTAR EL FICHERO JS#}
+<script type="text/javascript">
+    function submitform(obj) {
+        document.forms["selectCats"].submit();
+    }
+</script>
+
+        <div class="LineaFormulario">  </div>
+        <div class="LineaFormulario">  </div>
+    
+        <form id="selectCats" action="{{path('autor_buscar_resp')}}" method="POST">
+             <div class="LineaFormulario">      
+                    Buscar autor:                                      
+                     <select name="nombre" onchange="submitform(this)">                         
+                     {% for entity in entities %}
+                        <option value="{{ entity.id }}">{{ entity.nombre }} {{ entity.apellidos }} ({{ entity.restaurante }})</option>                        
+                     {% endfor %}
+                     </select>                                          
+             </div>
+        </form>
+              
+{% for entity in recetasAutor %}                     
+        <div class="LineaFormulario">  
+            <a href="{{path('receta_show',{'id': entity.id} )}}">
+                           {{ entity.titulo }}
+                    </a></h2>                      
+                   <p> ({{ entity.categ.titulo | upper }}) {{ entity.elaboracion | truncate (100)}}  </p>
+        </div>
+ {% endfor %}
+    
+{% endblock %}

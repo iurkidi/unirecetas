@@ -42,6 +42,20 @@ class receta
      * @ORM\Column(name="foto", type="string", length=50)
      */
     private $foto;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="foto_peq", type="string", length=50)
+     */
+    private $fotopeq;
+    
+    /**
+     * @var \Date
+     *
+     * @ORM\Column(name="fechapub", type="date")
+     */
+    private $fechaPub;
 
     /**
      * @var integer
@@ -146,6 +160,52 @@ class receta
     public function getFoto()
     {
         return $this->foto;
+    }
+    
+    /**
+     * Set fotopeq
+     *
+     * @param string $foto
+     * @return receta
+     */
+    public function setFotoPeq($foto)
+    {
+        $this->fotopeq = $foto;
+
+        return $this;
+    }
+
+    /**
+     * Get fotopeq
+     *
+     * @return string 
+     */
+    public function getFotoPeq()
+    {
+        return $this->fotopeq;
+    }
+    
+    /**
+     * Set fechaPub
+     *
+     * @param \Date $fechaPub
+     * @return noticias
+     */
+    public function setFechaPub($fechaPub)
+    {
+        $this->fechaPub = $fechaPub;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaPub
+     *
+     * @return \Date 
+     */
+    public function getFechaPub()
+    {
+        return $this->fechaPub;
     }
 
     /**

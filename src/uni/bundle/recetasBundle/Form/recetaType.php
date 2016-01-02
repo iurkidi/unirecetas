@@ -21,6 +21,8 @@ class recetaType extends AbstractType
             ->add('numpers')
             ->add('categ')
             ->add('aut')
+            ->add('fotopeq')
+            ->add('fechaPub')
         ;
     }
     

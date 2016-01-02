@@ -23,7 +23,11 @@ class recetaController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('uniRecetasBundle:receta')->findAll();
+//        $entities = $em->getRepository('uniRecetasBundle:receta')->findAll();        
+        $entities = $em->getRepository('uniRecetasBundle:receta')->findBy(
+             array(), 
+             array('fechaPub' => 'DESC')
+           );
 
         return $this->render('uniRecetasBundle:receta:index.html.twig', array(
             'entities' => $entities,

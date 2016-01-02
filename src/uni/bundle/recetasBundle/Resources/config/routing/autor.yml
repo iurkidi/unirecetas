@@ -28,3 +28,11 @@ autor_delete:
     path:     /{id}/delete
     defaults: { _controller: "uniRecetasBundle:autor:delete" }
     requirements: { _method: post|delete }
+    
+autor_buscar:
+    path:     /buscarAutor
+    defaults: { _controller: "uniRecetasBundle:autor:buscarAutor" }
+    
+autor_buscar_resp:
+    path:     /buscarAutorResp
+    defaults: { _controller: "uniRecetasBundle:autor:buscarAutorResp" }    
