@@ -12,7 +12,7 @@
                            {{ entity.titulo }}
                     </a></h2>                      
                    <p> ({{ entity.categ.titulo | upper }}) {{ entity.elaboracion | truncate (100)}}  </p>
-                   <br> <img src="{{ asset('bundles/unirecetas/img/'~ entity.foto  ~ '') }}"/>                                                                     
+                   <br> <img src="{{ asset('bundles/unirecetas/img/'~ entity.fotopeq  ~ '') }}"/>                                                                     
             </div>
             {# METE IF PARA SACAR EL RESTO DE NOTICIAS EN FILA SIN FOTO#}
                    {% elseif loop.index > "4" %}                         
