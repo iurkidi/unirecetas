@@ -42,12 +42,8 @@ class recetaController extends Controller
     public function indexPorCategoriaAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        echo ($id);
+        //echo ($id);
         
-        /*$dql = "select r from uniRecetasBundle:receta r where r.categ = :categoria";
-        $query = $em->createQuery($dql);
-        $query->setParameter('categoria',$cat);
-        $recetas = $query->getResult();*/
         $eRecetas = $em->getRepository('uniRecetasBundle:receta')->  findByCateg($id);
         $eCategoria = $em->getRepository('uniRecetasBundle:categoria')->  findOneById($id);
                
@@ -120,22 +116,56 @@ class recetaController extends Controller
         $em->persist($eReceta);
         $em->flush();
 
-        
+        //$eRecetas = $em->getRepository('uniRecetasBundle:receta')->  findByCateg($id);                       
         //DA ERROR AL REDIRIGIR A INDEXCATEGORIA
-//        $eRecetas = $em->getRepository('uniRecetasBundle:receta')->  findByCateg($id);                       
 //        return $this->render('uniRecetasBundle:receta:indexporcat.html.twig', array(
 //            'recetas' => $eRecetas,
 //            'ecategoria' => $eCat,
-//            'categoria' => $id
+//            'categoria' => $id,
 //        ));
         
         $entities = $em->getRepository('uniRecetasBundle:receta')->findBy(
              array(), 
              array('fechaPub' => 'DESC')
            );
-
         return $this->render('uniRecetasBundle:receta:index.html.twig', array(
             'entities' => $entities,
+        ));
+    }
+    
+        /**
+     * Displays a form to edit an existing receta entity.
+     *
+     */
+    public function editAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('uniRecetasBundle:receta')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find receta entity.');
+        }
+
+//        $editForm = $this->createEditForm($entity);
+//        $deleteForm = $this->createDeleteForm($id);
+        
+        $autores = $em->getRepository('uniRecetasBundle:autor')->findBy(
+             array(), 
+             array('apellidos' => 'ASC','nombre' => 'ASC')
+           );
+        
+         $categorias = $em->getRepository('uniRecetasBundle:categoria')->findBy(
+             array(), 
+             array('titulo' => 'ASC')
+           );
+
+        return $this->render('uniRecetasBundle:receta:edit2.html.twig', array(
+            'entity'      => $entity,
+            'autores'      => $autores,
+            'categorias'      => $categorias,
+//            'edit_form'   => $editForm->createView(),
+//            'delete_form' => $deleteForm->createView(),
         ));
     }
     
@@ -215,30 +245,6 @@ class recetaController extends Controller
 
         return $this->render('uniRecetasBundle:receta:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Displays a form to edit an existing receta entity.
-     *
-     */
-    public function editAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('uniRecetasBundle:receta')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find receta entity.');
-        }
-
-        $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('uniRecetasBundle:receta:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }

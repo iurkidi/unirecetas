@@ -1,0 +1,94 @@
+{% extends 'uniRecetasBundle::layout.html.twig' %}
+
+{% block central -%}
+   <h1>Nueva receta</h1>
+ 
+    <form id="idFormRec" action="{{ path('receta_update2') }}" method="post">
+        
+    <div class="detalleNot">
+        <div class="LineaFormulario"></div>
+        
+        <div class="LineaFormulario">            
+            <label for="idTituloRec">Titulo:</label>
+            <input type="text" id="idTituloRec" name="titulo" value="{{entity.titulo}}"/>           
+        </div>
+        
+        <div class="LineaFormulario"></div>       
+
+        <div class="LineaFormulario">            
+            <label for="idFotoPRec">Foto pequeña:</label>
+            <input type="text" id="idFotoPRec" name="fotop" value="{{entity.fotoPeq}}"/>
+        </div>
+        
+        <div class="LineaFormulario"></div>  
+        
+        <div class="LineaFormulario">            
+            <label for="idFotoRec">Foto:</label>
+            <input type="text" id="idFotoRec" name="foto" value="{{entity.foto}}"/>
+        </div>
+        
+        <div class="LineaFormulario"></div>  
+        
+        <div class="LineaFormulario">            
+            <label for="idAutorRec">Autor:</label>
+            <select name="idAutorRec">                         
+                     {% for autor in autores %}
+                         {%if autor.id == entity.aut.id%}
+                            <option value="{{ autor.id }}" selected>{{ autor.nombre }} {{ autor.apellidos }} ({{ autor.restaurante }})</option>                        
+                         {%else%}
+                             <option value="{{ autor.id }}">{{ autor.nombre }} {{ autor.apellidos }} ({{ autor.restaurante }})</option>
+                         {%endif%}
+                     {% endfor %}
+            </select>  
+        </div>
+            
+        <div class="LineaFormulario"></div>  
+        
+        <div class="LineaFormulario">            
+            <label for="idAutorRec">Categoria:</label>
+            <select name="idAutorRec">                         
+                     {% for cat in categorias %}
+                         {%if cat.id == entity.categ.id%}
+                            <option value="{{ cat.id }}" selected>{{ cat.titulo }}</option>                        
+                         {%else%}
+                            <option value="{{ cat.id }}">{{ cat.titulo }}</option>
+                         {%endif%}
+                     {% endfor %}
+            </select>  
+        </div>
+            
+        <div class="LineaFormulario"></div>
+        
+        <div class="LineaFormulario">            
+            <label for="idNumPers">Numero de personas:</label>
+            <input type="text" id="idNumPers" name="numpers" value="{{ entity.numpers }}"/>           
+        </div>
+        
+        <div class="LineaFormulario"></div>
+        
+        <div class="LineaFormulario">            
+            <label for="idFechaPub">Fecha publicacion:</label>
+            <input type="datetime" id="idFechaPub" name="fechapub" value="{{ entity.fechaPub|date('Y/m/d') }}"/>           
+        </div>
+
+        <div class="LineaFormulario">            
+            <label for="idElab">Elaboración:</label>
+            <textarea id="idElab" name="textElab" rows="10" cols="50">{{ entity.elaboracion }}</textarea>
+        </div>
+
+        <div class="LineaFormulario"></div>
+        <div class="LineaFormulario"></div>
+        <input type="hidden" name="idReceta" value={{entity.id}}/>
+        
+        <div class="LineaFormulario">
+            <input type="submit" name="Guardar" value="Guardar"/>
+        </div>
+        
+        <div class="LineaFormulario">
+            <a href="{{ path('receta')}}">
+               Volver atras
+           </a>
+        </div>
+    </div>
+    </form>  
+{% endblock %}
