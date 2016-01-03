@@ -44,5 +44,5 @@ receta_save_reccat:
     
 receta_update2:
     path:     /update2
-    defaults: { _controller: "uniRecetasBundle:receta:updateRec" }
+    defaults: { _controller: "uniRecetasBundle:receta:updateRec2" }
     requirements: { _method: post|put }

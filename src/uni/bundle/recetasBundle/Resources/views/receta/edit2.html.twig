@@ -45,8 +45,8 @@
         <div class="LineaFormulario"></div>  
         
         <div class="LineaFormulario">            
-            <label for="idAutorRec">Categoria:</label>
-            <select name="idAutorRec">                         
+            <label for="idCatRec">Categoria:</label>
+            <select name="idCatRec">                         
                      {% for cat in categorias %}
                          {%if cat.id == entity.categ.id%}
                             <option value="{{ cat.id }}" selected>{{ cat.titulo }}</option>                        
@@ -68,7 +68,7 @@
         
         <div class="LineaFormulario">            
             <label for="idFechaPub">Fecha publicacion:</label>
-            <input type="datetime" id="idFechaPub" name="fechapub" value="{{ entity.fechaPub|date('Y/m/d') }}"/>           
+            <input type="text" id="idFechaPub" name="fechapub" value="{{ entity.fechaPub|date('Y/m/d') }}"/>            
         </div>
 
         <div class="LineaFormulario">            

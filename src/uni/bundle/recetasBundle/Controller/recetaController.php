@@ -134,6 +134,59 @@ class recetaController extends Controller
     }
     
         /**
+     * Saves a new receta para una Categoria CONCRETA.
+     *
+     */
+    public function updateRec2Action(Request $request)
+    {        
+        $idReceta= $request->request->get('idReceta');
+                
+        $em = $this->getDoctrine()->getManager();
+        $eReceta = $em->getRepository('uniRecetasBundle:receta')->findOneById($idReceta);
+                        
+        $titulo= $request->request->get('titulo');
+        $eReceta->setTitulo($titulo);
+        
+        $textElab= $request->request->get('textElab');
+        $eReceta->setElaboracion($textElab);
+                
+        $foto= $request->request->get('foto');
+        $eReceta->setFoto($foto);
+        
+        $fotop= $request->request->get('fotop');
+        $eReceta->setFotoPeq($fotop);
+              
+        $fechapub= $request->request->get('fechapub');
+        $eReceta->setFechaPub(new \DateTime($fechapub));
+        
+        $numpers= $request->request->get('numpers');
+        $eReceta->setNumpers($numpers);
+                      
+        $autor= $request->request->get('idAutorRec');        
+        $eAutor = $em->getRepository('uniRecetasBundle:autor')->findOneById($autor);
+        if (!$eAutor) {
+            throw $this->createNotFoundException('Unable to find autor relacionado.');
+        }
+        $eReceta->setAut($eAutor); 
+        
+        $id= $request->request->get('idCatRec');
+        //echo($cat);        
+        $eCat = $em->getRepository('uniRecetasBundle:categoria')->  findOneById($id);
+        if (!$eCat) {
+            throw $this->createNotFoundException('Unable to find categoria relacionado.');
+        }
+        $eReceta->setCateg($eCat);                                      
+                
+        $em->persist($eReceta);
+        $em->flush();
+            
+        $entity = $em->getRepository('uniRecetasBundle:receta')->findOneById($idReceta);
+        return $this->render('uniRecetasBundle:receta:show.html.twig', array(
+            'entity' => $entity,
+        ));
+    }
+    
+        /**
      * Displays a form to edit an existing receta entity.
      *
      */
