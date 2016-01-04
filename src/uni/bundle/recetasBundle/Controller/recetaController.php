@@ -138,21 +138,21 @@ class recetaController extends Controller
         $em->persist($eReceta);
         $em->flush();
 
-        //$eRecetas = $em->getRepository('uniRecetasBundle:receta')->  findByCateg($id);                       
-        //DA ERROR AL REDIRIGIR A INDEXCATEGORIA
-//        return $this->render('uniRecetasBundle:receta:indexporcat.html.twig', array(
-//            'recetas' => $eRecetas,
-//            'ecategoria' => $eCat,
-//            'categoria' => $id,
-//        ));
-        
-        $entities = $em->getRepository('uniRecetasBundle:receta')->findBy(
-             array(), 
-             array('fechaPub' => 'DESC')
-           );
-        return $this->render('uniRecetasBundle:receta:index.html.twig', array(
-            'entities' => $entities,
+        $eRecetas = $em->getRepository('uniRecetasBundle:receta')->  findByCateg($id);                       
+//        DA ERROR AL REDIRIGIR A INDEXCATEGORIA
+        return $this->render('uniRecetasBundle:receta:indexporcat.html.twig', array(
+            'recetas' => $eRecetas,
+            'ecategoria' => $eCat,
+            'categoria' => $id,
         ));
+        
+//        $entities = $em->getRepository('uniRecetasBundle:receta')->findBy(
+//             array(), 
+//             array('fechaPub' => 'DESC')
+//           );
+//        return $this->render('uniRecetasBundle:receta:index.html.twig', array(
+//            'entities' => $entities,
+//        ));
     }
     
         /**

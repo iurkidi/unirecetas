@@ -1,0 +1,3 @@
+autor:
+    path:     /
+    defaults: { _controller: "uniRecetasBundle:autor:index" }

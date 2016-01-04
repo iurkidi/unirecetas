@@ -1,6 +1,10 @@
-autor:
-    path:     /
-    defaults: { _controller: "uniRecetasBundle:autor:index" }
+autor_conSeguridad:
+    resource: "@uniRecetasBundle/Resources/config/routing/conSeguridad/autorConSeguridad.yml"
+    prefix:   /conSeguridad
+    
+#autor:
+#    path:     /
+#    defaults: { _controller: "uniRecetasBundle:autor:index" }
 
 autor_show:
     path:     /{id}/show

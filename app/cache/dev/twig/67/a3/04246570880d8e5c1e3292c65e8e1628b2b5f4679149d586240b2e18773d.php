@@ -116,6 +116,10 @@ class __TwigTemplate_67a304246570880d8e5c1e3292c65e8e1628b2b5f4679149d586240b2e1
         echo "\">
                    Editar
                </a>
+               ";
+        // line 51
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form');
+        echo "
             </div>
     </div>
 ";
@@ -133,6 +137,6 @@ class __TwigTemplate_67a304246570880d8e5c1e3292c65e8e1628b2b5f4679149d586240b2e1
 
     public function getDebugInfo()
     {
-        return array (  115 => 48,  111 => 47,  98 => 39,  90 => 33,  77 => 30,  74 => 29,  70 => 28,  64 => 25,  59 => 22,  51 => 17,  44 => 13,  36 => 8,  31 => 5,  28 => 3,);
+        return array (  121 => 51,  115 => 48,  111 => 47,  98 => 39,  90 => 33,  77 => 30,  74 => 29,  70 => 28,  64 => 25,  59 => 22,  51 => 17,  44 => 13,  36 => 8,  31 => 5,  28 => 3,);
     }
 }

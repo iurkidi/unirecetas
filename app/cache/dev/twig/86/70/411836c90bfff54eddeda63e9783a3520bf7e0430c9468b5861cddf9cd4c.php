@@ -187,13 +187,16 @@ class __TwigTemplate_8670411836c90bfff54eddeda63e9783a3520bf7e0430c9468b5861cddf
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"), "html", null, true);
         echo "/>
         
+        ";
+        // line 84
+        echo "        
         <div class=\"LineaFormulario\">
             <input type=\"submit\" name=\"Guardar\" value=\"Guardar\"/>
         </div>
         
         <div class=\"LineaFormulario\">
             <a href=\"";
-        // line 88
+        // line 90
         echo $this->env->getExtension('routing')->getPath("receta");
         echo "\">
                Volver atras
@@ -216,6 +219,6 @@ class __TwigTemplate_8670411836c90bfff54eddeda63e9783a3520bf7e0430c9468b5861cddf
 
     public function getDebugInfo()
     {
-        return array (  197 => 88,  187 => 81,  179 => 76,  171 => 71,  161 => 64,  152 => 57,  146 => 56,  138 => 54,  130 => 52,  127 => 51,  123 => 50,  113 => 42,  107 => 41,  95 => 39,  83 => 37,  80 => 36,  76 => 35,  65 => 27,  55 => 20,  45 => 13,  35 => 6,  31 => 4,  28 => 3,);
+        return array (  200 => 90,  192 => 84,  187 => 81,  179 => 76,  171 => 71,  161 => 64,  152 => 57,  146 => 56,  138 => 54,  130 => 52,  127 => 51,  123 => 50,  113 => 42,  107 => 41,  95 => 39,  83 => 37,  80 => 36,  76 => 35,  65 => 27,  55 => 20,  45 => 13,  35 => 6,  31 => 4,  28 => 3,);
     }
 }

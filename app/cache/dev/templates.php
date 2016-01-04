@@ -51,7 +51,7 @@
   'SecurityBundle:Collector:security.html.twig' => '/home/itziar/web/synfony2/recetas/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views/Collector/security.html.twig',
   'TwigBundle:Exception:error.rdf.twig' => '/home/itziar/web/synfony2/recetas/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views/Exception/error.rdf.twig',
   'TwigBundle:Exception:logs.html.twig' => '/home/itziar/web/synfony2/recetas/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views/Exception/logs.html.twig',
-  'TwigBundle:Exception:error.html.twig' => '/home/itziar/web/synfony2/recetas/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views/Exception/error.html.twig',
+  'TwigBundle:Exception:error.html.twig' => '/home/itziar/web/synfony2/recetas/app/Resources/TwigBundle/views/Exception/error.html.twig',
   'TwigBundle:Exception:error.atom.twig' => '/home/itziar/web/synfony2/recetas/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views/Exception/error.atom.twig',
   'TwigBundle:Exception:exception.rdf.twig' => '/home/itziar/web/synfony2/recetas/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views/Exception/exception.rdf.twig',
   'TwigBundle:Exception:error.txt.twig' => '/home/itziar/web/synfony2/recetas/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views/Exception/error.txt.twig',

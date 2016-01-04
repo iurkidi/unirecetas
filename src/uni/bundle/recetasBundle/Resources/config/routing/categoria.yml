@@ -1,6 +1,10 @@
-categoria:
-    path:     /
-    defaults: { _controller: "uniRecetasBundle:categoria:index" }
+categoria_conSeguridad:
+    resource: "@uniRecetasBundle/Resources/config/routing/conSeguridad/categoriaConSeguridad.yml"
+    prefix:   /conSeguridad
+
+#categoria:
+#    path:     /
+#    defaults: { _controller: "uniRecetasBundle:categoria:index" }
 
 categoria_show:
     path:     /{id}/show

@@ -1,6 +1,10 @@
-ingrediente:
-    path:     /
-    defaults: { _controller: "uniRecetasBundle:ingrediente:index" }
+ingrediente_conSeguridad:
+    resource: "@uniRecetasBundle/Resources/config/routing/conSeguridad/ingredienteConSeguridad.yml"
+    prefix:   /conSeguridad
+    
+#ingrediente:
+#    path:     /
+#    defaults: { _controller: "uniRecetasBundle:ingrediente:index" }
 
 ingrediente_show:
     path:     /{id}/show

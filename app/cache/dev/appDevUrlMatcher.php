@@ -185,7 +185,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             if (0 === strpos($pathinfo, '/ingrediente')) {
                 // ingrediente
-                if (rtrim($pathinfo, '/') === '/ingrediente') {
+                if (rtrim($pathinfo, '/') === '/ingrediente/conSeguridad') {
                     if (substr($pathinfo, -1) !== '/') {
                         return $this->redirect($pathinfo.'/', 'ingrediente');
                     }
@@ -339,7 +339,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         if (0 === strpos($pathinfo, '/autor')) {
             // autor
-            if (rtrim($pathinfo, '/') === '/autor') {
+            if (rtrim($pathinfo, '/') === '/autor/conSeguridad') {
                 if (substr($pathinfo, -1) !== '/') {
                     return $this->redirect($pathinfo.'/', 'autor');
                 }
@@ -412,7 +412,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         if (0 === strpos($pathinfo, '/categoria')) {
             // categoria
-            if (rtrim($pathinfo, '/') === '/categoria') {
+            if (rtrim($pathinfo, '/') === '/categoria/conSeguridad') {
                 if (substr($pathinfo, -1) !== '/') {
                     return $this->redirect($pathinfo.'/', 'categoria');
                 }

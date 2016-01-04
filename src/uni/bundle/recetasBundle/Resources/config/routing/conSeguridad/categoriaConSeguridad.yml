@@ -1,0 +1,3 @@
+categoria:
+    path:     /
+    defaults: { _controller: "uniRecetasBundle:categoria:index" }
