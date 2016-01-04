@@ -57,8 +57,6 @@ class recetaController extends Controller
     public function newRecCatAction($id)
     {
 //        REDIRIGIR DIRECTAMENTE A LA PAGINA DE NUEVO Q SE HARA UN FORM A PIñON.
-//        PASAR EL ID DE LA CATEGORIA PARA GUARDARLO LUEGO
-//
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('uniRecetasBundle:autor')->findBy(
@@ -66,9 +64,15 @@ class recetaController extends Controller
              array('apellidos' => 'ASC','nombre' => 'ASC')
            );
         
+        $eingredientes = $em->getRepository('uniRecetasBundle:ingrediente')->findBy(
+             array(), 
+             array('nombre' => 'ASC')
+           );
+        
         return $this->render('uniRecetasBundle:receta:newreccat.html.twig', array(
             'idCat' => $id,  
             'entities' => $entities,
+            'eingredientes' => $eingredientes,
         ));
     }
     
@@ -107,11 +111,29 @@ class recetaController extends Controller
         
         $id= $request->request->get('idCat');
         //echo($id);        
-        $eCat = $em->getRepository('uniRecetasBundle:categoria')->  findOneById($id);
+        $eCat = $em->getRepository('uniRecetasBundle:categoria')->findOneById($id);
         if (!$eCat) {
             throw $this->createNotFoundException('Unable to find categoria relacionado.');
         }
-        $eReceta->setCateg($eCat);                                      
+        $eReceta->setCateg($eCat);   
+        
+        //INGREDIENTES
+        //for(1 <= 15){
+            $cantIngred=$request->request->get('tb1');
+            $unidIngred=$request->request->get('tb11');
+            $ingred=$request->request->get('tb111');
+            
+            echo($cantIngred);
+            echo($unidIngred);
+            echo($ingred);
+        //}
+        $eIngreRec=new ingredrec();
+        $eIngreRec->setCantidad($cantIngred);
+        $eIngreRec->setUnidad($unidIngred);
+        $eIngreRec->setIIngrediente($ingred);
+       /// $eIngreRec->setIReceta();
+        
+        $eReceta->addRecingr($eIngreRec);
                 
         $em->persist($eReceta);
         $em->flush();
@@ -134,7 +156,44 @@ class recetaController extends Controller
     }
     
         /**
-     * Saves a new receta para una Categoria CONCRETA.
+     * Displays a form to edit an existing receta entity.
+     *
+     */
+    public function editAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('uniRecetasBundle:receta')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find receta entity.');
+        }
+      
+        $autores = $em->getRepository('uniRecetasBundle:autor')->findBy(
+             array(), 
+             array('apellidos' => 'ASC','nombre' => 'ASC')
+           );
+        
+         $categorias = $em->getRepository('uniRecetasBundle:categoria')->findBy(
+             array(), 
+             array('titulo' => 'ASC')
+           );
+         
+         $eingredientes = $em->getRepository('uniRecetasBundle:ingrediente')->findBy(
+             array(), 
+             array('nombre' => 'ASC')
+           );            
+
+        return $this->render('uniRecetasBundle:receta:edit2.html.twig', array(
+            'entity'       => $entity,
+            'autores'      => $autores,
+            'categorias'   => $categorias,
+           'eingredientes' => $eingredientes,
+        ));
+    }
+    
+     /**
+     * Update de receta seleccionada.
      *
      */
     public function updateRec2Action(Request $request)
@@ -185,42 +244,7 @@ class recetaController extends Controller
             'entity' => $entity,
         ));
     }
-    
-        /**
-     * Displays a form to edit an existing receta entity.
-     *
-     */
-    public function editAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('uniRecetasBundle:receta')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find receta entity.');
-        }
-
-//        $editForm = $this->createEditForm($entity);
-//        $deleteForm = $this->createDeleteForm($id);
         
-        $autores = $em->getRepository('uniRecetasBundle:autor')->findBy(
-             array(), 
-             array('apellidos' => 'ASC','nombre' => 'ASC')
-           );
-        
-         $categorias = $em->getRepository('uniRecetasBundle:categoria')->findBy(
-             array(), 
-             array('titulo' => 'ASC')
-           );
-
-        return $this->render('uniRecetasBundle:receta:edit2.html.twig', array(
-            'entity'      => $entity,
-            'autores'      => $autores,
-            'categorias'      => $categorias,
-//            'edit_form'   => $editForm->createView(),
-//            'delete_form' => $deleteForm->createView(),
-        ));
-    }
     
     /**
      * Creates a new receta entity.

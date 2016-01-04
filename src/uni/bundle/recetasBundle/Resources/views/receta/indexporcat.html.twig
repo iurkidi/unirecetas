@@ -2,32 +2,24 @@
 
 {% block central %}
         
-    <h1> {{ecategoria.titulo}}</h1> 
+    {%if ecategoria is not null%}
     
+    <h1> {{ecategoria.titulo}}</h1> 
+    <div class="centrado fondofotos">
     {% for entity in recetas %}                  
             
             {% if loop.index <= "4" %}
-            <div class="{{'col'~ loop.index}}">                        
+            <div class="col1 borde">                        
                 <h2><a href="{{path('receta_show',{'id': entity.id} )}}">
                            {{ entity.titulo }}
-                    </a></h2>                      
-                   <p> ({{ entity.categ.titulo | upper }}) {{ entity.elaboracion | truncate (100)}}  </p>
+                    </a></h2>                   
                    <br> <img src="{{ asset('bundles/unirecetas/img/'~ entity.fotopeq  ~ '') }}"/>                                                                     
-            </div>
-            {# METE IF PARA SACAR EL RESTO DE NOTICIAS EN FILA SIN FOTO#}
-                   {% elseif loop.index > "4" %}                         
-                       <div class="col5 textoizq">
-                            <br>
-                           <a href="{{path('receta_show',{'id': entity.id} )}}" class="negrita separarIzq20">
-                           {{ entity.titulo }}
-                            </a>  
-                            <p class="separarIzq20">({{ entity.categ.titulo | upper }}) {{ entity.elaboracion | truncate (100)}} </p>
-                       </div>    
-                    {%endif%}
+            </div>            
+            {%endif%}
             
-        {% endfor %}
-        
-
+    {% endfor %}
+    </div>    
+{% endif %}
         <div class="LineaFormulario">   
             <a href="{{ path('receta') }}"> Volver atrás</a>
             <a href="{{ path('receta_new_reccat',{'id': categoria} ) }}"> Nueva receta</a>                             

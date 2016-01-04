@@ -1,7 +1,7 @@
 {% extends 'uniRecetasBundle::layout.html.twig' %}
 
 {% block central -%}
-   <h1>Nueva receta</h1>
+   <h1>Editar receta</h1>
  
     <form id="idFormRec" action="{{ path('receta_update2') }}" method="post">
         
@@ -10,28 +10,28 @@
         
         <div class="LineaFormulario">            
             <label for="idTituloRec">Titulo:</label>
-            <input type="text" id="idTituloRec" name="titulo" value="{{entity.titulo}}"/>           
+            <input type="text" id="idTituloRec" name="titulo" value="{{entity.titulo}}" class="izquierda separarIzq15"/>           
         </div>
         
         <div class="LineaFormulario"></div>       
 
         <div class="LineaFormulario">            
             <label for="idFotoPRec">Foto pequeña:</label>
-            <input type="text" id="idFotoPRec" name="fotop" value="{{entity.fotoPeq}}"/>
+            <input type="text" id="idFotoPRec" name="fotop" value="{{entity.fotoPeq}}" class="izquierda separarIzq15"/>
         </div>
         
         <div class="LineaFormulario"></div>  
         
         <div class="LineaFormulario">            
             <label for="idFotoRec">Foto:</label>
-            <input type="text" id="idFotoRec" name="foto" value="{{entity.foto}}"/>
+            <input type="text" id="idFotoRec" name="foto" value="{{entity.foto}}" class="izquierda separarIzq15"/>
         </div>
         
         <div class="LineaFormulario"></div>  
         
         <div class="LineaFormulario">            
             <label for="idAutorRec">Autor:</label>
-            <select name="idAutorRec">                         
+            <select name="idAutorRec" class="izquierda separarIzq15">                         
                      {% for autor in autores %}
                          {%if autor.id == entity.aut.id%}
                             <option value="{{ autor.id }}" selected>{{ autor.nombre }} {{ autor.apellidos }} ({{ autor.restaurante }})</option>                        
@@ -46,7 +46,7 @@
         
         <div class="LineaFormulario">            
             <label for="idCatRec">Categoria:</label>
-            <select name="idCatRec">                         
+            <select name="idCatRec" class="izquierda separarIzq15">                         
                      {% for cat in categorias %}
                          {%if cat.id == entity.categ.id%}
                             <option value="{{ cat.id }}" selected>{{ cat.titulo }}</option>                        
@@ -61,19 +61,19 @@
         
         <div class="LineaFormulario">            
             <label for="idNumPers">Numero de personas:</label>
-            <input type="text" id="idNumPers" name="numpers" value="{{ entity.numpers }}"/>           
+            <input type="text" id="idNumPers" name="numpers" value="{{ entity.numpers }}" class="izquierda separarIzq15"/>           
         </div>
         
         <div class="LineaFormulario"></div>
         
         <div class="LineaFormulario">            
             <label for="idFechaPub">Fecha publicacion:</label>
-            <input type="text" id="idFechaPub" name="fechapub" value="{{ entity.fechaPub|date('Y/m/d') }}"/>            
+            <input type="text" id="idFechaPub" name="fechapub" value="{{ entity.fechaPub|date('Y/m/d') }}" class="izquierda separarIzq15"/>            
         </div>
 
         <div class="LineaFormulario">            
             <label for="idElab">Elaboración:</label>
-            <textarea id="idElab" name="textElab" rows="10" cols="50">{{ entity.elaboracion }}</textarea>
+            <textarea id="idElab" name="textElab" rows="10" cols="50" class="izquierda separarIzq15">{{ entity.elaboracion }}</textarea>
         </div>
 
         <div class="LineaFormulario"></div>

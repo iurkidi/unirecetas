@@ -1,6 +1,7 @@
 {% extends 'uniRecetasBundle::layout.html.twig' %}
 
-{% block central %}
+{% block central %}       
+    
     <h1>Nueva receta</h1>
  
     <form id="idFormRec" action="{{ path('receta_save_reccat') }}" method="post">
@@ -10,27 +11,27 @@
         
         <div class="LineaFormulario">            
             <label for="idTituloRec">Titulo:</label>
-            <input type="text" id="idTituloRec" name="titulo"/>           
+            <input type="text" id="idTituloRec" name="titulo" class="izquierda separarIzq15"/>           
         </div>
         
         <div class="LineaFormulario"></div>       
 
         <div class="LineaFormulario">            
             <label for="idFotoPRec">Foto pequeña:</label>
-            <input type="text" id="idFotoPRec" name="fotop"/>
+            <input type="text" id="idFotoPRec" name="fotop" class="izquierda separarIzq15"/>
         </div>
         
         <div class="LineaFormulario"></div>  
         
         <div class="LineaFormulario">            
             <label for="idFotoRec">Foto:</label>
-            <input type="text" id="idFotoRec" name="foto"/>
+            <input type="text" id="idFotoRec" name="foto" class="izquierda separarIzq15"/>
         </div>
         
         <div class="LineaFormulario">            
             <label for="idAutorRec">Autor:</label>
-            <select name="idAutorRec">                         
-                     {% for entity in entities %}
+            <select name="idAutorRec" class="izquierda separarIzq15">                         
+                    {% for entity in entities %}
                         <option value="{{ entity.id }}">{{ entity.nombre }} {{ entity.apellidos }} ({{ entity.restaurante }})</option>                        
                      {% endfor %}
             </select>  
@@ -40,18 +41,50 @@
         
         <div class="LineaFormulario">            
             <label for="idNumPers">Numero de personas:</label>
-            <input type="text" id="idNumPers" name="numpers"/>           
+            <input type="text" id="idNumPers" name="numpers" class="izquierda separarIzq15"/>           
         </div>
 
         <div class="LineaFormulario">            
             <label for="idElab">Elaboración:</label>
-            <textarea id="idElab" name="textElab" rows="10" cols="50">Elaboración de la receta</textarea>
+            <textarea id="idElab" name="textElab" rows="10" cols="50" class="izquierda separarIzq15">Elaboración de la receta</textarea>
         </div>
 
-        <div class="LineaFormulario"></div>
-        <div class="LineaFormulario"></div>
+        <div class="LineaFormulario"></div>        
         <input type="hidden" name="idCat" value={{idCat}}/>
+                                  
+        {#<div class="LineaFormulario">#}
+            <h2 class="izquierda separarIzq15">Ingredientes</h2>
+        {#</div>    #}    
+      {#  <div class="LineaFormulario">#}
+            <p class="izquierda">Seleccione los ingredientes con el siguiente formato: <i>200 gramos mantequilla</i>. 
+            Hay un limite de 15 ingredientes.</p>
+      {#  </div>#}
+        {#<div class="LineaFormulario"></div>
+        Añadir ingredientes:<div id="main" class="LineaFormulario">
+            <input type="button" id="btAdd" value="Añadir ingr." class="bt" />
+            <input type="button" id="btRemove" value="Eliminar ingr." class="bt" />
+            <input type="button" id="btRemoveAll" value="Eliminar todo" class="bt" /><br />
+        </div>#}                
         
+        <div id="container" class="LineaFormulario izquierda">
+            {%for i in 1..15%}
+                <div id="{{'tb'~ i}}" class="LineaFormulario izquierda">
+                
+                        <input type=text size="1" name="{{'tb'~ i}}" value="" />
+                        <input type=text size="4" name="{{'tb'~ i~ i}}" value="" />
+                        <select name="{{'tb'~ i~ i~ i}}"> 
+                        {% for entity in eingredientes %}
+                            <option value="{{ entity.id }}">{{ entity.nombre }}</option>                        
+                        {% endfor %}
+                        </select>
+                </div>
+                
+            {% endfor%}
+        </div>
+        {#<input type=button class="bt" onclick="GetTextValue()" id="btSubmit" value="Enviar" />#}
+        
+        <div class="LineaFormulario"></div>
+        <div class="LineaFormulario"></div>
         <div class="LineaFormulario">
             <input type="submit" name="Guardar" value="Guardar"/>
         </div>
@@ -61,6 +94,7 @@
                Volver atras
            </a>
         </div>
+               
     </div>
     </form>           
 
