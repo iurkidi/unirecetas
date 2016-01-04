@@ -13,36 +13,3 @@ receta_show:
 receta_categ_index:
     path:     /{id}/indexPorCat
     defaults: { _controller: "uniRecetasBundle:receta:indexPorCategoria" }
-
-#receta_new:
-#    path:     /new
-#    defaults: { _controller: "uniRecetasBundle:receta:new" }
-#
-#receta_create:
-#    path:     /create
-#    defaults: { _controller: "uniRecetasBundle:receta:create" }
-#    requirements: { _method: post }
-
-#receta_update:
-#    path:     /{id}/update
-#    defaults: { _controller: "uniRecetasBundle:receta:update" }
-#    requirements: { _method: post|put }
-
-#receta_delete:
-#    path:     /{id}/delete
-#    defaults: { _controller: "uniRecetasBundle:receta:delete" }
-#    requirements: { _method: post|delete }
-#
-#receta_new_reccat:
-#    path:     /{id}/newreccat
-#    defaults: { _controller: "uniRecetasBundle:receta:newRecCat" }    
-#    
-#receta_save_reccat:
-#    path:     /save_reccat
-#    defaults: { _controller: "uniRecetasBundle:receta:saveRecCat" }
-#    requirements: { _method: post|put }
-#    
-#receta_update2:
-#    path:     /update2
-#    defaults: { _controller: "uniRecetasBundle:receta:updateRec2" }
-#    requirements: { _method: post|put }

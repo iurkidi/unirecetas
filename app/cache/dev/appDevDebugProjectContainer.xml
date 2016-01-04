@@ -1793,7 +1793,7 @@
             </argument>
             <argument key="security.firewall.map.context.conSeguridad" type="service">
               <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                <argument>^/(categoria|autor|ingrediente)/conSeguridad</argument>
+                <argument>^/(categoria|autor|ingrediente|receta)/conSeguridad</argument>
               </service>
             </argument>
           </argument>
@@ -1825,7 +1825,7 @@
       <call method="add">
         <argument type="service">
           <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-            <argument>^/(categoria|autor|ingrediente)/conSeguridad</argument>
+            <argument>^/(categoria|autor|ingrediente|receta)/conSeguridad</argument>
           </service>
         </argument>
         <argument type="collection">

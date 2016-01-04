@@ -35,16 +35,16 @@ class __TwigTemplate_4d17052cb26b1772da495a1da524c8a579ab2a0285092767c2f8c8e7631
             ";
         // line 7
         $this->displayBlock('menuSup', $context, $blocks);
-        // line 36
+        // line 37
         echo "        </div>
  
         
         <div id=\"central\">
             
             ";
-        // line 41
+        // line 42
         $this->displayBlock('central', $context, $blocks);
-        // line 44
+        // line 45
         echo "            
         </div>
  
@@ -112,6 +112,10 @@ class __TwigTemplate_4d17052cb26b1772da495a1da524c8a579ab2a0285092767c2f8c8e7631
         // line 30
         echo $this->env->getExtension('routing')->getPath("ingrediente");
         echo "\" title=\"Texto\">Ingredientes</a></li>
+                        <li><a href=\"";
+        // line 31
+        echo $this->env->getExtension('routing')->getPath("receta_new");
+        echo "\" title=\"Texto\">Nueva receta</a></li>
                     </ul>
                 </li>
              </ul>
@@ -119,10 +123,10 @@ class __TwigTemplate_4d17052cb26b1772da495a1da524c8a579ab2a0285092767c2f8c8e7631
             ";
     }
 
-    // line 41
+    // line 42
     public function block_central($context, array $blocks = array())
     {
-        // line 42
+        // line 43
         echo "            
             ";
     }
@@ -139,6 +143,6 @@ class __TwigTemplate_4d17052cb26b1772da495a1da524c8a579ab2a0285092767c2f8c8e7631
 
     public function getDebugInfo()
     {
-        return array (  126 => 42,  123 => 41,  113 => 30,  109 => 29,  105 => 28,  97 => 23,  91 => 20,  87 => 19,  83 => 18,  77 => 15,  63 => 10,  59 => 8,  56 => 7,  48 => 44,  46 => 41,  37 => 7,  33 => 5,  30 => 4,  110 => 25,  106 => 24,  103 => 23,  99 => 21,  84 => 19,  78 => 16,  73 => 14,  69 => 13,  66 => 12,  64 => 11,  44 => 9,  39 => 36,  36 => 6,  34 => 5,  31 => 4,  28 => 3,);
+        return array (  130 => 43,  127 => 42,  117 => 31,  113 => 30,  109 => 29,  91 => 20,  87 => 19,  83 => 18,  77 => 15,  73 => 14,  69 => 13,  63 => 10,  59 => 8,  48 => 45,  46 => 42,  39 => 37,  37 => 7,  33 => 5,  30 => 4,  120 => 27,  105 => 28,  97 => 23,  92 => 20,  88 => 19,  81 => 16,  76 => 13,  70 => 12,  65 => 10,  61 => 9,  56 => 7,  54 => 7,  34 => 5,  31 => 4,  28 => 3,);
     }
 }

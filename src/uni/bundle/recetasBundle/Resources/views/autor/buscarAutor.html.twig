@@ -15,7 +15,7 @@
             <div class="LineaFormulario">  </div>
             <div class="LineaFormulario izquierda separarIzq15">      
                 <label for="nombre" class="letraverde">Autor: </label>                                    
-                     <select name="nombre" onchange="submitform(this)" class="izquierda">                         
+                     <select name="nombre" onblur="submitform(this)" class="izquierda">                         
                      {% for entity in entities %}
                         <option value="{{ entity.id }}">{{ entity.nombre }} {{ entity.apellidos }} ({{ entity.restaurante }})</option>                        
                      {% endfor %}

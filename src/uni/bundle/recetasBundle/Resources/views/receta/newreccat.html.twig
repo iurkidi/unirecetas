@@ -2,7 +2,7 @@
 
 {% block central %}       
     
-    <h1>Nueva receta</h1>
+    <h1>Nueva receta {{eCat.titulo}}</h1>
  
     <form id="idFormRec" action="{{ path('receta_save_reccat') }}" method="post">
         

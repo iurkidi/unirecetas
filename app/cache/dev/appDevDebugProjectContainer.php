@@ -1885,7 +1885,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_FirewallService()
     {
-        return $this->services['security.firewall'] = new \Symfony\Component\Security\Http\Firewall(new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.dev' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/(_(profiler|wdt)|css|images|js)/'), 'security.firewall.map.context.demo_login' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/demo/secured/login$'), 'security.firewall.map.context.demo_secured_area' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/demo/secured/'), 'security.firewall.map.context.conSeguridad' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/(categoria|autor|ingrediente)/conSeguridad'))), $this->get('debug.event_dispatcher'));
+        return $this->services['security.firewall'] = new \Symfony\Component\Security\Http\Firewall(new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.dev' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/(_(profiler|wdt)|css|images|js)/'), 'security.firewall.map.context.demo_login' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/demo/secured/login$'), 'security.firewall.map.context.demo_secured_area' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/demo/secured/'), 'security.firewall.map.context.conSeguridad' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/(categoria|autor|ingrediente|receta)/conSeguridad'))), $this->get('debug.event_dispatcher'));
     }
 
     /**
@@ -3384,7 +3384,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['security.access_map'] = $instance = new \Symfony\Component\Security\Http\AccessMap();
 
-        $instance->add(new \Symfony\Component\HttpFoundation\RequestMatcher('^/(categoria|autor|ingrediente)/conSeguridad'), array(0 => 'ROLE_ADMIN'), NULL);
+        $instance->add(new \Symfony\Component\HttpFoundation\RequestMatcher('^/(categoria|autor|ingrediente|receta)/conSeguridad'), array(0 => 'ROLE_ADMIN'), NULL);
 
         return $instance;
     }

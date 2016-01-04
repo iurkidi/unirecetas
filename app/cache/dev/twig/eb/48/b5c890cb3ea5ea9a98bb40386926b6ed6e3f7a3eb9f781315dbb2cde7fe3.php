@@ -45,7 +45,7 @@ class __TwigTemplate_eb48b5c890cb3ea5ea9a98bb40386926b6ed6e3f7a3eb9f781315dbb2cd
             <div class=\"LineaFormulario\">  </div>
             <div class=\"LineaFormulario izquierda separarIzq15\">      
                 <label for=\"nombre\" class=\"letraverde\">Autor: </label>                                    
-                     <select name=\"nombre\" onchange=\"submitform(this)\" class=\"izquierda\">                         
+                     <select name=\"nombre\" onblur=\"submitform(this)\" class=\"izquierda\">                         
                      ";
         // line 19
         $context['_parent'] = (array) $context;

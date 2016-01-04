@@ -257,7 +257,7 @@ ul#menu-horizontal li:hover ul{
     background-image:url("../img/fondo_platos_orig_oscuro.png");
 }
 
-#ingredientes{
+#notaingred{
     position: relative;
     display: block;
 /*    height: 20%;*/
@@ -271,7 +271,7 @@ ul#menu-horizontal li:hover ul{
     background-image:url("../img/bck_postit.jpg");
 }
 
-#ingredientes li{
+#notaingred li{
     font-weight: bold;
 }
 
@@ -321,6 +321,10 @@ label {
     float: left;
 }
 
+.claseclearright{
+    clear:right;
+}
+
 .centrado{
     align: center;
 }
@@ -363,6 +367,13 @@ label {
     margin:0.5em 1.5em 0.3em 1.5em;
 }
 
+.letranegra{
+    color:#000000;
+    font-size:11pt;
+    text-align: justify;
+    margin:0em 0.5em 0.3em 0em;
+}
+
 .letraverde{
     color:#136825 !important;
 }
@@ -381,6 +392,10 @@ label {
 
 .negrita{
     font-weight: bold;
+}
+
+.sinnegrita{
+    font-weight: normal !important;
 }
 
 .textoblanco{

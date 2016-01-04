@@ -246,6 +246,57 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/receta')) {
+            if (0 === strpos($pathinfo, '/receta/conSeguridad')) {
+                // receta_delete
+                if (preg_match('#^/receta/conSeguridad/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                        $allow = array_merge($allow, array('POST', 'DELETE'));
+                        goto not_receta_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'receta_delete')), array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::deleteAction',));
+                }
+                not_receta_delete:
+
+                // receta_new
+                if ($pathinfo === '/receta/conSeguridad/new') {
+                    return array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::newAction',  '_route' => 'receta_new',);
+                }
+
+                // receta_new_reccat
+                if (preg_match('#^/receta/conSeguridad/(?P<id>[^/]++)/newreccat$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'receta_new_reccat')), array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::newRecCatAction',));
+                }
+
+                // receta_save_reccat
+                if ($pathinfo === '/receta/conSeguridad/save_reccat') {
+                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                        $allow = array_merge($allow, array('POST', 'PUT'));
+                        goto not_receta_save_reccat;
+                    }
+
+                    return array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::saveRecCatAction',  '_route' => 'receta_save_reccat',);
+                }
+                not_receta_save_reccat:
+
+                // receta_edit
+                if (preg_match('#^/receta/conSeguridad/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'receta_edit')), array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::editAction',));
+                }
+
+                // receta_update2
+                if ($pathinfo === '/receta/conSeguridad/update2') {
+                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                        $allow = array_merge($allow, array('POST', 'PUT'));
+                        goto not_receta_update2;
+                    }
+
+                    return array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::updateRec2Action',  '_route' => 'receta_update2',);
+                }
+                not_receta_update2:
+
+            }
+
             // receta
             if (rtrim($pathinfo, '/') === '/receta') {
                 if (substr($pathinfo, -1) !== '/') {
@@ -264,76 +315,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             if (preg_match('#^/receta/(?P<id>[^/]++)/indexPorCat$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'receta_categ_index')), array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::indexPorCategoriaAction',));
             }
-
-            // receta_new
-            if ($pathinfo === '/receta/new') {
-                return array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::newAction',  '_route' => 'receta_new',);
-            }
-
-            // receta_create
-            if ($pathinfo === '/receta/create') {
-                if ($this->context->getMethod() != 'POST') {
-                    $allow[] = 'POST';
-                    goto not_receta_create;
-                }
-
-                return array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::createAction',  '_route' => 'receta_create',);
-            }
-            not_receta_create:
-
-            // receta_edit
-            if (preg_match('#^/receta/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'receta_edit')), array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::editAction',));
-            }
-
-            // receta_update
-            if (preg_match('#^/receta/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                    $allow = array_merge($allow, array('POST', 'PUT'));
-                    goto not_receta_update;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'receta_update')), array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::updateAction',));
-            }
-            not_receta_update:
-
-            // receta_delete
-            if (preg_match('#^/receta/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                    $allow = array_merge($allow, array('POST', 'DELETE'));
-                    goto not_receta_delete;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'receta_delete')), array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::deleteAction',));
-            }
-            not_receta_delete:
-
-            // receta_new_reccat
-            if (preg_match('#^/receta/(?P<id>[^/]++)/newreccat$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'receta_new_reccat')), array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::newRecCatAction',));
-            }
-
-            // receta_save_reccat
-            if ($pathinfo === '/receta/save_reccat') {
-                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                    $allow = array_merge($allow, array('POST', 'PUT'));
-                    goto not_receta_save_reccat;
-                }
-
-                return array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::saveRecCatAction',  '_route' => 'receta_save_reccat',);
-            }
-            not_receta_save_reccat:
-
-            // receta_update2
-            if ($pathinfo === '/receta/update2') {
-                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                    $allow = array_merge($allow, array('POST', 'PUT'));
-                    goto not_receta_update2;
-                }
-
-                return array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::updateRec2Action',  '_route' => 'receta_update2',);
-            }
-            not_receta_update2:
 
         }
 
