@@ -28,23 +28,20 @@ class __TwigTemplate_10d62a135d6ad62ea83be01283b81b0400ce5711be7f935b0c675ca46ff
     public function block_central($context, array $blocks = array())
     {
         // line 4
-        echo "<h1>categoria creation</h1>
+        echo "<h1>Añadir categoría</h1>
 
     ";
         // line 6
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form');
         echo "
 
-        <ul class=\"record_actions\">
-    <li>
-        <a href=\"";
+   <div class=\"LineaFormulario\">  </div>
+       <div class=\"LineaFormulario\">   
+            <a href=\"";
         // line 10
         echo $this->env->getExtension('routing')->getPath("categoria");
-        echo "\">
-            Back to the list
-        </a>
-    </li>
-</ul>
+        echo "\"> Volver atrás</a>          
+    </div>
 ";
     }
 

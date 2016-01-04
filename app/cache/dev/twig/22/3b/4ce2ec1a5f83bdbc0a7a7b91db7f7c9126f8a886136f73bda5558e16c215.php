@@ -35,41 +35,39 @@ class __TwigTemplate_223b4ce2ec1a5f83bdbc0a7a7b91db7f7c9126f8a886136f73bda5558e1
         $this->displayBlock('stylesheets', $context, $blocks);
         // line 10
         echo "        
+        <script src=\"";
+        // line 11
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/unirecetas/js/jsrecetas.js"), "html", null, true);
+        echo "\"></script>
         ";
-        // line 12
-        echo "
-        <script type=\"text/javascript\">
-                    </script>
-
-";
-        // line 17
-        echo "        
+        // line 13
+        echo "      
     </head>
     <body>
         
         
-        <div id=\"cabecera\">
+        <div id=\"cabecera\" class=\"imagencab\">
             ";
-        // line 23
+        // line 19
         $this->displayBlock('cabecera', $context, $blocks);
-        // line 26
+        // line 22
         echo "        </div>
         
         <div id=\"contenFormularios\">
             ";
-        // line 29
+        // line 25
         $this->displayBlock('cuerpo', $context, $blocks);
-        // line 31
+        // line 27
         echo " 
         </div>
                ";
-        // line 33
+        // line 29
         echo "           
         <div id=\"pie\">
             ";
-        // line 35
+        // line 31
         $this->displayBlock('pie', $context, $blocks);
-        // line 39
+        // line 35
         echo "        </div>
        
     </body>
@@ -93,26 +91,26 @@ class __TwigTemplate_223b4ce2ec1a5f83bdbc0a7a7b91db7f7c9126f8a886136f73bda5558e1
         ";
     }
 
-    // line 23
+    // line 19
     public function block_cabecera($context, array $blocks = array())
     {
-        // line 24
+        // line 20
         echo "                <h1 class=\"letralogo textocentrado\"> uniRecetas </h1>  
             ";
     }
 
-    // line 29
+    // line 25
     public function block_cuerpo($context, array $blocks = array())
     {
-        // line 30
+        // line 26
         echo "                Cuerpo
             ";
     }
 
-    // line 35
+    // line 31
     public function block_pie($context, array $blocks = array())
     {
-        // line 36
+        // line 32
         echo "                <p class=\"izquierda separarIzq15 negrita\">2015/2016</p>
                 <p class=\"derecha separarDcha20 negrita\">Itziar Urkidi</p>
             ";
@@ -123,8 +121,13 @@ class __TwigTemplate_223b4ce2ec1a5f83bdbc0a7a7b91db7f7c9126f8a886136f73bda5558e1
         return "::base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  116 => 36,  113 => 35,  108 => 30,  105 => 29,  100 => 24,  97 => 23,  90 => 8,  87 => 7,  81 => 5,  73 => 39,  71 => 35,  67 => 33,  61 => 29,  54 => 23,  40 => 12,  35 => 7,  24 => 1,  91 => 35,  88 => 34,  79 => 23,  63 => 31,  59 => 8,  56 => 26,  48 => 37,  46 => 17,  39 => 29,  37 => 10,  33 => 5,  30 => 5,);
+        return array (  114 => 32,  111 => 31,  106 => 26,  103 => 25,  98 => 20,  95 => 19,  88 => 8,  85 => 7,  79 => 5,  71 => 35,  69 => 31,  65 => 29,  61 => 27,  59 => 25,  54 => 22,  52 => 19,  44 => 13,  40 => 11,  37 => 10,  35 => 7,  30 => 5,  24 => 1,);
     }
 }

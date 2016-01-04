@@ -29,107 +29,85 @@ class __TwigTemplate_d1a4e3fe0d10a24924622c72c5e419eb0944f46150eac2d9904bc426202
     {
         // line 4
         echo "        
-    <h1> ";
-        // line 5
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["ecategoria"]) ? $context["ecategoria"] : $this->getContext($context, "ecategoria")), "titulo"), "html", null, true);
-        echo "</h1> 
-    
     ";
-        // line 7
-        $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["recetas"]) ? $context["recetas"] : $this->getContext($context, "recetas")));
-        $context['loop'] = array(
-          'parent' => $context['_parent'],
-          'index0' => 0,
-          'index'  => 1,
-          'first'  => true,
-        );
-        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
-            $length = count($context['_seq']);
-            $context['loop']['revindex0'] = $length - 1;
-            $context['loop']['revindex'] = $length;
-            $context['loop']['length'] = $length;
-            $context['loop']['last'] = 1 === $length;
-        }
-        foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            echo "                  
+        // line 5
+        if ((!(null === (isset($context["ecategoria"]) ? $context["ecategoria"] : $this->getContext($context, "ecategoria"))))) {
+            // line 6
+            echo "    
+    <h1> ";
+            // line 7
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["ecategoria"]) ? $context["ecategoria"] : $this->getContext($context, "ecategoria")), "titulo"), "html", null, true);
+            echo "</h1> 
+    <div class=\"centrado fondofotos\">
+    ";
+            // line 9
+            $context['_parent'] = (array) $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["recetas"]) ? $context["recetas"] : $this->getContext($context, "recetas")));
+            $context['loop'] = array(
+              'parent' => $context['_parent'],
+              'index0' => 0,
+              'index'  => 1,
+              'first'  => true,
+            );
+            if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
+                $length = count($context['_seq']);
+                $context['loop']['revindex0'] = $length - 1;
+                $context['loop']['revindex'] = $length;
+                $context['loop']['length'] = $length;
+                $context['loop']['last'] = 1 === $length;
+            }
+            foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
+                echo "                  
             
             ";
-            // line 9
-            if (($this->getAttribute((isset($context["loop"]) ? $context["loop"] : $this->getContext($context, "loop")), "index") <= "4")) {
-                // line 10
-                echo "            <div class=\"";
-                echo twig_escape_filter($this->env, ("col" . $this->getAttribute((isset($context["loop"]) ? $context["loop"] : $this->getContext($context, "loop")), "index")), "html", null, true);
-                echo "\">                        
-                <h2><a href=\"";
                 // line 11
-                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("receta_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-                echo "\">
+                if (($this->getAttribute((isset($context["loop"]) ? $context["loop"] : $this->getContext($context, "loop")), "index") <= "4")) {
+                    // line 12
+                    echo "            <div class=\"col1 borde\">                        
+                <h2><a href=\"";
+                    // line 13
+                    echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("receta_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
+                    echo "\">
                            ";
-                // line 12
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "titulo"), "html", null, true);
-                echo "
-                    </a></h2>                      
-                   <p> (";
-                // line 14
-                echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categ"), "titulo")), "html", null, true);
-                echo ") ";
-                echo twig_escape_filter($this->env, twig_truncate_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "elaboracion"), 100), "html", null, true);
-                echo "  </p>
+                    // line 14
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "titulo"), "html", null, true);
+                    echo "
+                    </a></h2>                   
                    <br> <img src=\"";
-                // line 15
-                echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl((("bundles/unirecetas/img/" . $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "foto")) . "")), "html", null, true);
-                echo "\"/>                                                                     
-            </div>
+                    // line 16
+                    echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl((("bundles/unirecetas/img/" . $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "fotopeq")) . "")), "html", null, true);
+                    echo "\"/>                                                                     
+            </div>            
             ";
-                // line 18
-                echo "                   ";
-            } elseif (($this->getAttribute((isset($context["loop"]) ? $context["loop"] : $this->getContext($context, "loop")), "index") > "4")) {
-                echo "                         
-                       <div class=\"col5 textoizq\">
-                            <br>
-                           <a href=\"";
-                // line 21
-                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("receta_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-                echo "\" class=\"negrita separarIzq20\">
-                           ";
-                // line 22
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "titulo"), "html", null, true);
-                echo "
-                            </a>  
-                            <p class=\"separarIzq20\">(";
-                // line 24
-                echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categ"), "titulo")), "html", null, true);
-                echo ") ";
-                echo twig_escape_filter($this->env, twig_truncate_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "elaboracion"), 100), "html", null, true);
-                echo " </p>
-                       </div>    
-                    ";
+                }
+                // line 19
+                echo "            
+    ";
+                ++$context['loop']['index0'];
+                ++$context['loop']['index'];
+                $context['loop']['first'] = false;
+                if (isset($context['loop']['length'])) {
+                    --$context['loop']['revindex0'];
+                    --$context['loop']['revindex'];
+                    $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+                }
             }
-            // line 27
-            echo "            
-        ";
-            ++$context['loop']['index0'];
-            ++$context['loop']['index'];
-            $context['loop']['first'] = false;
-            if (isset($context['loop']['length'])) {
-                --$context['loop']['revindex0'];
-                --$context['loop']['revindex'];
-                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
-            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 21
+            echo "    </div>    
+";
         }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 29
-        echo "        
-
-        <div class=\"LineaFormulario\">   ";
-        // line 31
-        echo "                            
+        // line 23
+        echo "        <div class=\"LineaFormulario\">   
             <a href=\"";
-        // line 32
-        echo $this->env->getExtension('routing')->getPath("receta_new");
+        // line 24
+        echo $this->env->getExtension('routing')->getPath("receta");
+        echo "\"> Volver atrás</a>
+            <a href=\"";
+        // line 25
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("receta_new_reccat", array("id" => (isset($context["categoria"]) ? $context["categoria"] : $this->getContext($context, "categoria")))), "html", null, true);
         echo "\"> Nueva receta</a>                             
         </div>
     
@@ -148,6 +126,6 @@ class __TwigTemplate_d1a4e3fe0d10a24924622c72c5e419eb0944f46150eac2d9904bc426202
 
     public function getDebugInfo()
     {
-        return array (  132 => 32,  129 => 31,  125 => 29,  110 => 27,  102 => 24,  97 => 22,  93 => 21,  86 => 18,  81 => 15,  75 => 14,  70 => 12,  66 => 11,  61 => 10,  59 => 9,  39 => 7,  34 => 5,  31 => 4,  28 => 3,);
+        return array (  110 => 25,  106 => 24,  103 => 23,  99 => 21,  84 => 19,  78 => 16,  73 => 14,  69 => 13,  66 => 12,  64 => 11,  44 => 9,  39 => 7,  36 => 6,  34 => 5,  31 => 4,  28 => 3,);
     }
 }

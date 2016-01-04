@@ -308,6 +308,33 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
             not_receta_delete:
 
+            // receta_new_reccat
+            if (preg_match('#^/receta/(?P<id>[^/]++)/newreccat$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'receta_new_reccat')), array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::newRecCatAction',));
+            }
+
+            // receta_save_reccat
+            if ($pathinfo === '/receta/save_reccat') {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_receta_save_reccat;
+                }
+
+                return array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::saveRecCatAction',  '_route' => 'receta_save_reccat',);
+            }
+            not_receta_save_reccat:
+
+            // receta_update2
+            if ($pathinfo === '/receta/update2') {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_receta_update2;
+                }
+
+                return array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\recetaController::updateRec2Action',  '_route' => 'receta_update2',);
+            }
+            not_receta_update2:
+
         }
 
         if (0 === strpos($pathinfo, '/autor')) {
@@ -367,6 +394,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'autor_delete')), array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\autorController::deleteAction',));
             }
             not_autor_delete:
+
+            if (0 === strpos($pathinfo, '/autor/buscarAutor')) {
+                // autor_buscar
+                if ($pathinfo === '/autor/buscarAutor') {
+                    return array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\autorController::buscarAutorAction',  '_route' => 'autor_buscar',);
+                }
+
+                // autor_buscar_resp
+                if ($pathinfo === '/autor/buscarAutorResp') {
+                    return array (  '_controller' => 'uni\\bundle\\recetasBundle\\Controller\\autorController::buscarAutorRespAction',  '_route' => 'autor_buscar_resp',);
+                }
+
+            }
 
         }
 

@@ -1,15 +1,12 @@
 {% extends 'uniRecetasBundle::layout.html.twig' %}
 
 {% block central -%}
-    <h1>ingrediente creation</h1>
+    <h1>Nuevo ingrediente</h1>
 
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('ingrediente') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    {{ form(form) }}   
+        
+       <div class="LineaFormulario">  </div>
+       <div class="LineaFormulario">   
+            <a href="{{ path('ingrediente') }}"> Volver atrás</a>          
+       </div>
 {% endblock %}

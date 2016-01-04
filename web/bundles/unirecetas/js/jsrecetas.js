@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 
+    
     function submitform(obj) {
+        var s=document.forms["selectCats"].nombre;
+        document.forms["selectCats"].nomOculto.value=s.options[s.selectedIndex].text;
         document.forms["selectCats"].submit();
-    }
+    }       
+

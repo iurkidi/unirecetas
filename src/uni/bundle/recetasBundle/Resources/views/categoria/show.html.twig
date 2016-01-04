@@ -1,14 +1,10 @@
 {% extends 'uniRecetasBundle::layout.html.twig' %}
 
 {% block central -%}
-    <h1>categoria</h1>
+    <h1>Detalle categoría</h1>
 
     <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
+        <tbody>           
             <tr>
                 <th>Titulo</th>
                 <td>{{ entity.titulo }}</td>
@@ -18,19 +14,13 @@
                 <td>{{ entity.descripcion }}</td>
             </tr>
         </tbody>
-    </table>
+    </table>       
+   
+   <div class="LineaFormulario">  </div>
+       <div class="LineaFormulario">   
+            <a href="{{ path('categoria') }}"> Volver atrás</a>
+            <a href="{{ path('categoria_edit', { 'id': entity.id }) }}">Editar categoría</a>
+           {# {{ form(delete_form) }}#}
+    </div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('categoria') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('categoria_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-   {# <li>{{ form(delete_form) }}</li>#}
-</ul>
 {% endblock %}

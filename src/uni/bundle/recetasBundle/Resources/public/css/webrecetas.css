@@ -119,7 +119,6 @@ ul#menu-horizontal ul {
 
 ul#menu-horizontal ul li {
     display: block !important;
-    /*z-index: 0;*/
 }
 
 ul#menu-horizontal li:hover ul{
@@ -128,7 +127,6 @@ ul#menu-horizontal li:hover ul{
 
 ul#menu-horizontal li:hover ul{
     display: block;
-    /*z-index: 0;*/
 }
 
 #menu-horizontal li {
@@ -143,6 +141,12 @@ ul#menu-horizontal li:hover ul{
 
 #menu-horizontal li:hover {
     background:#F2F2F2;
+    color:#000000;
+}
+
+#menu-horizontal li a:hover {
+    background:#F2F2F2;
+    color:#000000;
 }
 
 #menu-horizontal li a {
@@ -354,11 +358,14 @@ label {
 
 .LineaFormulario p{
     color:#000000;
-    font-size:15px;
+    font-size:11pt;
     text-align: justify;
     margin:0.5em 1.5em 0.3em 1.5em;
 }
 
+.letraverde{
+    color:#136825 !important;
+}
 
 .listasindisco{
     list-style-type:none;

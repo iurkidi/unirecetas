@@ -91,9 +91,11 @@ class __TwigTemplate_4d17052cb26b1772da495a1da524c8a579ab2a0285092767c2f8c8e7631
         echo $this->env->getExtension('routing')->getPath("receta_categ_index", array("id" => 6));
         echo "\" title=\"Texto\">Postre</a></li>                              
                 <li><a href=\"#\" title=\"Texto\">Buscar</a>
-                    <ul>";
+                    <ul>
+                        <li><a href=\"";
         // line 23
-        echo "                        <li><a href=\"#\" title=\"Texto\">Por autor</a></li>                        
+        echo $this->env->getExtension('routing')->getPath("autor_buscar");
+        echo "\" title=\"Texto\">Por autor</a></li>                        
                     </ul>
                 </li>
                 <li><a href=\"#\" title=\"Texto\">Administracion</a>
@@ -137,6 +139,6 @@ class __TwigTemplate_4d17052cb26b1772da495a1da524c8a579ab2a0285092767c2f8c8e7631
 
     public function getDebugInfo()
     {
-        return array (  124 => 42,  121 => 41,  111 => 30,  107 => 29,  103 => 28,  96 => 23,  91 => 20,  87 => 19,  83 => 18,  77 => 15,  73 => 14,  69 => 13,  63 => 10,  59 => 8,  56 => 7,  48 => 44,  46 => 41,  39 => 36,  37 => 7,  33 => 5,  30 => 4,);
+        return array (  126 => 42,  123 => 41,  113 => 30,  109 => 29,  105 => 28,  97 => 23,  91 => 20,  87 => 19,  83 => 18,  77 => 15,  73 => 14,  69 => 13,  63 => 10,  59 => 8,  56 => 7,  48 => 44,  46 => 41,  39 => 36,  37 => 7,  33 => 5,  30 => 4,);
     }
 }

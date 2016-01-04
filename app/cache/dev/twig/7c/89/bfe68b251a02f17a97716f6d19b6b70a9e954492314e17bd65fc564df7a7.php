@@ -27,81 +27,63 @@ class __TwigTemplate_7c89bfe68b251a02f17a97716f6d19b6b70a9e954492314e17bd65fc564
     // line 3
     public function block_central($context, array $blocks = array())
     {
-        // line 4
-        echo "<h1>autor list</h1>
+        // line 5
+        echo "<div class=\"LineaFormulario\">  
+        <h1>Autores</h1>
+       </div>
 
     <table class=\"records_list\">
         <thead>
-            <tr>
-                <th>Id</th>
+            <tr>                
                 <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Restaurante</th>
-                <th>Actions</th>
+               
+                <th>Restaurante</th>                
             </tr>
         </thead>
         <tbody>
         ";
-        // line 17
+        // line 18
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 18
+            // line 19
             echo "            <tr>
                 <td><a href=\"";
-            // line 19
+            // line 20
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("autor_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"), "html", null, true);
-            echo "</a></td>
-                <td>";
-            // line 20
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "nombre"), "html", null, true);
-            echo "</td>
-                <td>";
-            // line 21
+            echo " ";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "apellidos"), "html", null, true);
-            echo "</td>
+            echo "</a></td>
+               
                 <td>";
             // line 22
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "restaurante"), "html", null, true);
             echo "</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href=\"";
-            // line 26
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("autor_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-            echo "\">show</a>
-                    </li>
-                    <li>
-                        <a href=\"";
-            // line 29
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("autor_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-            echo "\">edit</a>
-                    </li>
-                </ul>
-                </td>
+                
             </tr>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 35
+        // line 26
         echo "        </tbody>
     </table>
 
-        <ul>
-        <li>
+        <div class=\"LineaFormulario\">  </div>
+       <div class=\"LineaFormulario\">   
             <a href=\"";
-        // line 40
+        // line 31
+        echo $this->env->getExtension('routing')->getPath("receta");
+        echo "\"> Volver atrás</a>
+            <a href=\"";
+        // line 32
         echo $this->env->getExtension('routing')->getPath("autor_new");
-        echo "\">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+        echo "\">Añadir autor</a>
+        </div>
+    
     ";
     }
 
@@ -117,6 +99,6 @@ class __TwigTemplate_7c89bfe68b251a02f17a97716f6d19b6b70a9e954492314e17bd65fc564
 
     public function getDebugInfo()
     {
-        return array (  99 => 40,  92 => 35,  80 => 29,  74 => 26,  67 => 22,  63 => 21,  59 => 20,  53 => 19,  50 => 18,  46 => 17,  31 => 4,  28 => 3,);
+        return array (  83 => 32,  79 => 31,  72 => 26,  62 => 22,  53 => 20,  50 => 19,  46 => 18,  31 => 5,  28 => 3,);
     }
 }

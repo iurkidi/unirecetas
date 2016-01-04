@@ -1,24 +1,21 @@
 {% extends 'uniRecetasBundle::layout.html.twig' %}
 
 {% block central -%}
-    <h1>ingrediente list</h1>
+    <h1>Ingredientes</h1>
 
     <table class="records_list">
         <thead>
-            <tr>
-                <th>Id</th>
+            <tr>                
                 <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Actions</th>
+                <th>Descripcion</th>               
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('ingrediente_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.nombre }}</td>
+                <td><a href="{{ path('ingrediente_show', { 'id': entity.id }) }}">{{ entity.nombre }}</a></td>                
                 <td>{{ entity.descripcion }}</td>
-                <td>
+               {# <td>
                 <ul>
                     <li>
                         <a href="{{ path('ingrediente_show', { 'id': entity.id }) }}">show</a>
@@ -27,17 +24,15 @@
                         <a href="{{ path('ingrediente_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
-                </td>
+                </td>#}
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('ingrediente_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+    
+       <div class="LineaFormulario">  </div>
+       <div class="LineaFormulario">   
+            <a href="{{ path('receta') }}"> Volver atrás</a>
+            <a href="{{ path('ingrediente_new') }}">Añadir ingrediente</a>
+        </div>
     {% endblock %}

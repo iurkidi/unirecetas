@@ -1,16 +1,12 @@
 {% extends 'uniRecetasBundle::layout.html.twig' %}
 
 {% block central -%}
-    <h1>categoria edit</h1>
-
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('categoria') }}">
-            Back to the list
-        </a>
-    </li>
-   {# <li>{{ form(delete_form) }}</li>#}
-</ul>
+    <h1>Editar categoría</h1>
+   
+        {{ form(edit_form) }}    
+   
+   <div class="LineaFormulario">  </div>
+       <div class="LineaFormulario">   
+            <a href="{{ path('categoria') }}"> Volver atrás</a>          
+    </div>
 {% endblock %}

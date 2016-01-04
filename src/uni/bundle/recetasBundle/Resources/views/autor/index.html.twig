@@ -1,45 +1,35 @@
 {% extends 'uniRecetasBundle::layout.html.twig' %}
 
 {% block central -%}
-    <h1>autor list</h1>
+    
+    <div class="LineaFormulario">  
+        <h1>Autores</h1>
+       </div>
 
     <table class="records_list">
         <thead>
-            <tr>
-                <th>Id</th>
+            <tr>                
                 <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Restaurante</th>
-                <th>Actions</th>
+               
+                <th>Restaurante</th>                
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('autor_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.nombre }}</td>
-                <td>{{ entity.apellidos }}</td>
+                <td><a href="{{ path('autor_show', { 'id': entity.id }) }}">{{ entity.nombre }} {{ entity.apellidos }}</a></td>
+               
                 <td>{{ entity.restaurante }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('autor_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('autor_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
+                
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('autor_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+        <div class="LineaFormulario">  </div>
+       <div class="LineaFormulario">   
+            <a href="{{ path('receta') }}"> Volver atrás</a>
+            <a href="{{ path('autor_new') }}">Añadir autor</a>
+        </div>
+    
     {% endblock %}

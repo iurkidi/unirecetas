@@ -28,75 +28,56 @@ class __TwigTemplate_0d59ba6ed14aa104d54231356d5f2a288ce300e6a2d08203897f8d29fca
     public function block_central($context, array $blocks = array())
     {
         // line 4
-        echo "<h1>categoria list</h1>
+        echo "<h1>Categorias</h1>
 
     <table class=\"records_list\">
         <thead>
-            <tr>
-                <th>Id</th>
+            <tr>                
                 <th>Titulo</th>
-                <th>Descripcion</th>
-                <th>Actions</th>
+                <th>Descripcion</th>                
             </tr>
         </thead>
         <tbody>
         ";
-        // line 16
+        // line 14
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 17
+            // line 15
             echo "            <tr>
                 <td><a href=\"";
-            // line 18
+            // line 16
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("categoria_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"), "html", null, true);
-            echo "</a></td>
-                <td>";
-            // line 19
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "titulo"), "html", null, true);
-            echo "</td>
+            echo "</a></td>                
                 <td>";
-            // line 20
+            // line 17
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "descripcion"), "html", null, true);
-            echo "</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href=\"";
-            // line 24
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("categoria_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-            echo "\">show</a>
-                    </li>
-                    <li>
-                        <a href=\"";
-            // line 27
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("categoria_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-            echo "\">edit</a>
-                    </li>
-                </ul>
-                </td>
+            echo "</td>             
             </tr>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 33
+        // line 20
         echo "        </tbody>
-    </table>
-
-        <ul>
-        <li>
+    </table>      
+                
+       <div class=\"LineaFormulario\">  </div>
+       <div class=\"LineaFormulario\">   
             <a href=\"";
-        // line 38
+        // line 25
+        echo $this->env->getExtension('routing')->getPath("receta");
+        echo "\"> Volver atrás</a>
+            <a href=\"";
+        // line 26
         echo $this->env->getExtension('routing')->getPath("categoria_new");
-        echo "\">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+        echo "\">Añadir categoría</a>
+           ";
+        // line 28
+        echo "        </div>
     ";
     }
 
@@ -112,6 +93,6 @@ class __TwigTemplate_0d59ba6ed14aa104d54231356d5f2a288ce300e6a2d08203897f8d29fca
 
     public function getDebugInfo()
     {
-        return array (  94 => 38,  87 => 33,  75 => 27,  69 => 24,  62 => 20,  58 => 19,  52 => 18,  49 => 17,  45 => 16,  31 => 4,  28 => 3,);
+        return array (  80 => 28,  76 => 26,  72 => 25,  65 => 20,  56 => 17,  50 => 16,  47 => 15,  43 => 14,  31 => 4,  28 => 3,);
     }
 }

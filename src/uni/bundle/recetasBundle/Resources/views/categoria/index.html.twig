@@ -1,43 +1,29 @@
 {% extends 'uniRecetasBundle::layout.html.twig' %}
 
 {% block central -%}
-    <h1>categoria list</h1>
+    <h1>Categorias</h1>
 
     <table class="records_list">
         <thead>
-            <tr>
-                <th>Id</th>
+            <tr>                
                 <th>Titulo</th>
-                <th>Descripcion</th>
-                <th>Actions</th>
+                <th>Descripcion</th>                
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('categoria_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.titulo }}</td>
-                <td>{{ entity.descripcion }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('categoria_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('categoria_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
+                <td><a href="{{ path('categoria_show', { 'id': entity.id }) }}">{{ entity.titulo }}</a></td>                
+                <td>{{ entity.descripcion }}</td>             
             </tr>
         {% endfor %}
         </tbody>
-    </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('categoria_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+    </table>      
+                
+       <div class="LineaFormulario">  </div>
+       <div class="LineaFormulario">   
+            <a href="{{ path('receta') }}"> Volver atrás</a>
+            <a href="{{ path('categoria_new') }}">Añadir categoría</a>
+           {# {{ form(delete_form) }}#}
+        </div>
     {% endblock %}

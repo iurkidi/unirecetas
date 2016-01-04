@@ -27,7 +27,7 @@ body{
     margin: 0;
     padding: 0;
     /*background-color: #F2F2F2;*/
-    background-color:#8C1B17;
+    background-color:#1E3B24;
     color: #000000;
     font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
     font-size: 10pt;
@@ -44,7 +44,7 @@ body{
     overflow: auto;
     display: block;
     background-color: #FFFFFF;
-    color: #D21300;
+    color: #136825;
 }
 
 #pie{	
@@ -55,8 +55,8 @@ body{
     height: 7%;
     overflow: auto;
     display: block;
-    background-color: #FFFFFF;
-    color: #D21300;
+    background-color: #136825;
+    color: #FFFFFF;
 }
 
 #contenFormularios{
@@ -67,7 +67,7 @@ body{
     /*height: 78%;*/
     overflow: auto;
     display: block;
-    background-color: #9F9F9F;
+    background-color: #FFFFFF;
 }
 
 #central{
@@ -75,10 +75,9 @@ body{
     padding: 0;
     margin: 0;	 
     width: 100%;
-    /*height: 100%;*/
-/*    background-color: #FFAA24;*/
-    background-color: #82807F; 
-    color: #930D00;
+    background-color: #FFFFFF; 
+    color: #136825;
+/*    font-weight: bold;*/
     display: block;
     overflow: auto;
 }
@@ -93,7 +92,7 @@ body{
     /*height: 5%;*/
     overflow: auto;
     display: block;
-    background-color: #930D00;
+    background-color: #1E3B24;
     color: #FFFFFF;
 }
 
@@ -120,7 +119,6 @@ ul#menu-horizontal ul {
 
 ul#menu-horizontal ul li {
     display: block !important;
-    /*z-index: 0;*/
 }
 
 ul#menu-horizontal li:hover ul{
@@ -129,7 +127,6 @@ ul#menu-horizontal li:hover ul{
 
 ul#menu-horizontal li:hover ul{
     display: block;
-    /*z-index: 0;*/
 }
 
 #menu-horizontal li {
@@ -137,13 +134,19 @@ ul#menu-horizontal li:hover ul{
     width:98px;
     min-height:19px;
     text-align:center;
-    background:#D21300;
+    background:#136825;
     list-style:none;
     padding:2px 0;
 }
 
 #menu-horizontal li:hover {
-    background:#BBBBBB;
+    background:#F2F2F2;
+    color:#000000;
+}
+
+#menu-horizontal li a:hover {
+    background:#F2F2F2;
+    color:#000000;
 }
 
 #menu-horizontal li a {
@@ -163,7 +166,7 @@ ul#menu-horizontal li:hover ul{
 
 /* COLUMNAS*/
 .col1{
-    background-color: #F2F2F2;
+    background-color: #FFFFFF;
     position: relative;
     float:left;
     width: 25%;
@@ -174,7 +177,7 @@ ul#menu-horizontal li:hover ul{
 }
 
 .col2{
-    background-color: #F2F2F2;
+    background-color: #FFFFFF;
     position: relative;
     float:left;
     clear:right;
@@ -187,7 +190,7 @@ ul#menu-horizontal li:hover ul{
     padding: 0;
 }
 .col3{
-    background-color: #F2F2F2;
+    background-color: #FFFFFF;
     position: relative;
     float:left;
     width: 25%;
@@ -198,7 +201,7 @@ ul#menu-horizontal li:hover ul{
     margin-left: 350px;/*480*/
 } 
 .col4{
-    background-color: #F2F2F2;
+    background-color: #FFFFFF;
     position: relative;
     float:left;
     clear:right;
@@ -211,7 +214,7 @@ ul#menu-horizontal li:hover ul{
     padding: 0;
 }
 .col5{
-    background-color: #F2F2F2;
+    background-color: #FFFFFF;
     position: relative;
     width: 50%;
     overflow: auto;
@@ -221,7 +224,7 @@ ul#menu-horizontal li:hover ul{
 }
 
 .detalleNot{
-    background-color: #F2F2F2;
+    background-color: #FFFFFF;
     position: relative;
     /*float:left;
     clear:right;*/
@@ -234,6 +237,43 @@ ul#menu-horizontal li:hover ul{
     padding: 0;
 }
 /* FIN COLUMNAS*/
+.borde{
+	border-width: 7px !important;
+	border-style: solid !important;
+	border-color: #FFFFFF !important;
+}
+
+.imagencab{
+    background-image:url("../img/fondo_cabecera.jpg");
+    background-repeat:no-repeat;
+}
+
+.imagenbody{
+    background-image:url("../img/fondo_body2.png");
+    background-repeat:no-repeat;
+}
+
+.fondofotos{
+    background-image:url("../img/fondo_platos_orig_oscuro.png");
+}
+
+#ingredientes{
+    position: relative;
+    display: block;
+/*    height: 20%;*/
+    margin: 2px 0px;
+    padding: 0px;
+    clear: both;
+/*    float: left;*/
+    width: 98%;
+    border: 0px none;
+    background-repeat:no-repeat;
+    background-image:url("../img/bck_postit.jpg");
+}
+
+#ingredientes li{
+    font-weight: bold;
+}
 
 /* ESTILOS ANCHOS Y ALTOS */
 
@@ -248,7 +288,7 @@ ul#menu-horizontal li:hover ul{
 h1, h2, h3, h5, h5, h6{
     font-weight:bold;
     font-family: Georgia, Times, "Times New Roman", serif;
-    color:#930D00 !important;
+    color:#136825 !important;
 }
 
 a:link, a:visited{
@@ -257,7 +297,7 @@ a:link, a:visited{
 }
 
 a:hover{
-    color: #D21300;
+    color: #136825;
 }
 
 a:active{
@@ -267,13 +307,13 @@ a:active{
 
 label {
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 8pt;
+    font-size: 11pt;
     font-weight: normal;
     color: #333333;
     text-decoration: none;
     text-align: left;
-    background-color: #F2F2F2;
-    margin: 0px 0px 0px 5px;
+    background-color: #FFFFFF;
+    margin: 0px 0px 0px 2px;
     padding: 0px;
     height: 15px;
     width: 140px;
@@ -318,11 +358,14 @@ label {
 
 .LineaFormulario p{
     color:#000000;
-    font-size:15px;
+    font-size:11pt;
     text-align: justify;
     margin:0.5em 1.5em 0.3em 1.5em;
 }
 
+.letraverde{
+    color:#136825 !important;
+}
 
 .listasindisco{
     list-style-type:none;
@@ -330,6 +373,10 @@ label {
 
 .listadisco{
     list-style-type:disc;
+}
+
+.oculto{
+    display: none;
 }
 
 .negrita{

@@ -7,16 +7,16 @@ class __TwigTemplate_6b1faaaa3f66c811ca678ae129c45a5224baebf3d3d5493d9cf6f465e2e
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("::base.html.twig");
+        $this->parent = $this->env->loadTemplate("uniRecetasBundle::layout.html.twig");
 
         $this->blocks = array(
-            'body' => array($this, 'block_body'),
+            'central' => array($this, 'block_central'),
         );
     }
 
     protected function doGetParent(array $context)
     {
-        return "::base.html.twig";
+        return "uniRecetasBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -25,10 +25,10 @@ class __TwigTemplate_6b1faaaa3f66c811ca678ae129c45a5224baebf3d3d5493d9cf6f465e2e
     }
 
     // line 3
-    public function block_body($context, array $blocks = array())
+    public function block_central($context, array $blocks = array())
     {
         // line 4
-        echo "<h1>autor creation</h1>
+        echo "<h1>Nuevo autor</h1>
 
     ";
         // line 6
@@ -41,7 +41,7 @@ class __TwigTemplate_6b1faaaa3f66c811ca678ae129c45a5224baebf3d3d5493d9cf6f465e2e
         // line 10
         echo $this->env->getExtension('routing')->getPath("autor");
         echo "\">
-            Back to the list
+            Volver atrás
         </a>
     </li>
 </ul>

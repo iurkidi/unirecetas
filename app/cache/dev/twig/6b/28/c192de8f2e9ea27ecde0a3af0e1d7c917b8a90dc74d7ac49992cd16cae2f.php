@@ -7,16 +7,16 @@ class __TwigTemplate_6b28c192de8f2e9ea27ecde0a3af0e1d7c917b8a90dc74d7ac49992cd16
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("::base.html.twig");
+        $this->parent = $this->env->loadTemplate("uniRecetasBundle::layout.html.twig");
 
         $this->blocks = array(
-            'body' => array($this, 'block_body'),
+            'central' => array($this, 'block_central'),
         );
     }
 
     protected function doGetParent(array $context)
     {
-        return "::base.html.twig";
+        return "uniRecetasBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -25,66 +25,53 @@ class __TwigTemplate_6b28c192de8f2e9ea27ecde0a3af0e1d7c917b8a90dc74d7ac49992cd16
     }
 
     // line 3
-    public function block_body($context, array $blocks = array())
+    public function block_central($context, array $blocks = array())
     {
         // line 4
-        echo "<h1>autor</h1>
+        echo "<h1>Detalle autor</h1>
 
     <table class=\"record_properties\">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>";
-        // line 10
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"), "html", null, true);
-        echo "</td>
-            </tr>
+            
             <tr>
                 <th>Nombre</th>
                 <td>";
-        // line 14
+        // line 11
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "nombre"), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
-                <th>Apellidos</th>
-                <td>";
-        // line 18
+        echo " ";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "apellidos"), "html", null, true);
         echo "</td>
             </tr>
-            <tr>
+           ";
+        // line 17
+        echo "            <tr>
                 <th>Restaurante</th>
                 <td>";
-        // line 22
+        // line 19
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "restaurante"), "html", null, true);
         echo "</td>
             </tr>
         </tbody>
     </table>
 
-        <ul class=\"record_actions\">
-    <li>
-        <a href=\"";
-        // line 29
+        ";
+        // line 37
+        echo "    
+     <div class=\"LineaFormulario\">  </div>
+       <div class=\"LineaFormulario\">   
+            <a href=\"";
+        // line 40
         echo $this->env->getExtension('routing')->getPath("autor");
-        echo "\">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href=\"";
-        // line 34
+        echo "\"> Volver atrás</a>
+            <a href=\"";
+        // line 41
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("autor_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-        echo "\">
-            Edit
-        </a>
-    </li>
-    <li>";
-        // line 38
+        echo "\">Editar autor</a>
+            ";
+        // line 42
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), 'form');
-        echo "</li>
-</ul>
+        echo "
+        </div>
 ";
     }
 
@@ -100,6 +87,6 @@ class __TwigTemplate_6b28c192de8f2e9ea27ecde0a3af0e1d7c917b8a90dc74d7ac49992cd16
 
     public function getDebugInfo()
     {
-        return array (  85 => 38,  78 => 34,  70 => 29,  60 => 22,  53 => 18,  46 => 14,  39 => 10,  31 => 4,  28 => 3,);
+        return array (  72 => 42,  68 => 41,  64 => 40,  59 => 37,  51 => 19,  47 => 17,  40 => 11,  31 => 4,  28 => 3,);
     }
 }

@@ -1,15 +1,12 @@
 {% extends 'uniRecetasBundle::layout.html.twig' %}
 
 {% block central -%}
-    <h1>categoria creation</h1>
+    <h1>Añadir categoría</h1>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('categoria') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+   <div class="LineaFormulario">  </div>
+       <div class="LineaFormulario">   
+            <a href="{{ path('categoria') }}"> Volver atrás</a>          
+    </div>
 {% endblock %}

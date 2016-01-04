@@ -6,9 +6,16 @@
         <div class="LineaFormulario">  </div>
     
         <form id="selectCats" action="{{path('autor_buscar_resp')}}" method="POST">
-             <div class="LineaFormulario">      
-                    Buscar autor:                                      
-                     <select name="nombre" onchange="submitform(this)">                         
+            
+            <div class="LineaFormulario">  </div>
+            <div class="LineaFormulario">  </div>
+            <div class="LineaFormulario"> 
+                <p class="izquierda separarIzq15">Seleccione un autor de la lista y a continuación se mostrarán todas sus recetas.</p>
+            </div>
+            <div class="LineaFormulario">  </div>
+            <div class="LineaFormulario izquierda separarIzq15">      
+                <label for="nombre" class="letraverde">Autor: </label>                                    
+                     <select name="nombre" onchange="submitform(this)" class="izquierda">                         
                      {% for entity in entities %}
                         <option value="{{ entity.id }}">{{ entity.nombre }} {{ entity.apellidos }} ({{ entity.restaurante }})</option>                        
                      {% endfor %}
@@ -21,13 +28,20 @@
     <div class="LineaFormulario">  </div>          
  
    {% if nomAutor is not null%}
-     <h1>Recetas de {{nomAutor}}</h1>
+       <div class="LineaFormulario">  
+        <h1 class="izquierda separarIzq15">Recetas de {{nomAutor}}</h1>
+       </div>
+       <div class="LineaFormulario">  </div>
      {% for entity in recetasAutor %}                     
         <div class="LineaFormulario">  
-            <h2><a href="{{path('receta_show',{'id': entity.id} )}}">
-                           {{ entity.titulo }}
-                    </a></h2>                      
-                   <p> ({{ entity.categ.titulo | upper }}) {{ entity.elaboracion | truncate (100)}}  </p>
+            <h3 class="izquierda separarIzq15">{{ entity.fechaPub|date('Y/m/d') }}
+            - ({{ entity.categ.titulo | upper }}) <a href="{{path('receta_show',{'id': entity.id} )}}"> {{ entity.titulo }}</a>
+            </h3>        
+          {# <br> #} 
+         </div>
+        <div class="LineaFormulario">
+            <img class="izquierda separarIzq15" src="{{ asset('bundles/unirecetas/img/'~ entity.fotopeq  ~ '') }}"/> 
+                  {# <p class="izquierda separarIzq15"> {{ entity.elaboracion | truncate (100)}} </p>#}
         </div>
  {% endfor %}
  {%endif %}
