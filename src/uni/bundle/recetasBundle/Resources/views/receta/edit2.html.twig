@@ -80,7 +80,36 @@
         <div class="LineaFormulario"></div>
         <input type="hidden" name="idReceta" value={{entity.id}}/>
         
-        {#FALTAN LOS INGREDIENTES#}
+        <div class="LineaFormulario"></div>               
+                                          
+        <h2 class="izquierda separarIzq15">Ingredientes</h2>
+            <p class="izquierda">Seleccione los ingredientes con el siguiente formato: <i>200 gramos mantequilla</i>. 
+            Hay un limite de 15 ingredientes.</p>                   
+        
+        <div id="container" class="LineaFormulario izquierda">
+            {%for i in 1..15%}
+                <div id="{{'tb'~ i}}" class="LineaFormulario izquierda">
+                
+                        <input type=text size="1" name="{{'tb'~ i}}" value="" />
+                        <input type=text size="4" name="{{'tb'~ i~ i}}" value="" />
+                        <select name="{{'tb'~ i~ i~ i}}"> 
+                        {% for ingred in eingredientes %}   
+                            {% for ing in entity.recingr%}
+                         {%if ingred.id == ing.iingrediente.id%}
+                            <option value="{{ ingred.id }}" selected>{{ ingred.nombre }}</option>                        
+                         {%else%}
+                             <option value="{{ ingred.id }}">{{ ingred.nombre }}</option>                        
+                         {%endif%}
+                         {% endfor %}
+                        {% endfor %}
+                        </select>
+                </div>
+                
+            {% endfor%}
+        </div>        
+        
+        <div class="LineaFormulario"></div>
+        <div class="LineaFormulario"></div>
         
         <div class="LineaFormulario">
             <input type="submit" name="Guardar" value="Guardar"/>

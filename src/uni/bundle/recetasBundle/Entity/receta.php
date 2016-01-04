@@ -75,7 +75,7 @@ class receta
     protected $aut;
     
     /**
-    * @ORM\OneToMany(targetEntity="ingredrec", mappedBy="ireceta", cascade={"remove"})
+    * @ORM\OneToMany(targetEntity="ingredrec", mappedBy="ireceta", cascade={"persist"})
     */
     protected $recingr;
     
@@ -309,4 +309,5 @@ class receta
     {
         return $this->recingr;
     }
+
 }

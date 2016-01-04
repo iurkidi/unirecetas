@@ -37,7 +37,7 @@ class ingrediente
     private $descripcion;
     
     /**
-    * @ORM\OneToMany(targetEntity="ingredrec", mappedBy="iingrediente", cascade={"remove"})
+    * @ORM\OneToMany(targetEntity="ingredrec", mappedBy="iingrediente", cascade={"persist"})
     */
     protected $recingr;
     

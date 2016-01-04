@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use uni\bundle\recetasBundle\Entity\receta;
+use uni\bundle\recetasBundle\Entity\ingredrec;
 use uni\bundle\recetasBundle\Form\recetaType;
 
 /**
@@ -167,9 +168,15 @@ class recetaController extends Controller
 //        $eIngreRec=new ingredrec();
 //        $eIngreRec->setCantidad($cantIngred);
 //        $eIngreRec->setUnidad($unidIngred);
-//        $eIngreRec->setIIngrediente($ingred);
-       /// $eIngreRec->setIReceta();
-        
+//        
+//        $eIngrediente = $em->getRepository('uniRecetasBundle:ingrediente')->findOneById($ingred);
+//        if (!$eIngrediente) {
+//            throw $this->createNotFoundException('Unable to find ingrediente relacionado.');
+//        }
+//        $eIngreRec->setIIngrediente($eIngrediente);
+//        
+//        $eIngreRec->setIReceta();
+//        
 //        $eReceta->addRecingr($eIngreRec);
                 
         $em->persist($eReceta);
@@ -271,7 +278,34 @@ class recetaController extends Controller
         if (!$eCat) {
             throw $this->createNotFoundException('Unable to find categoria relacionado.');
         }
-        $eReceta->setCateg($eCat);                                      
+        $eReceta->setCateg($eCat);      
+        
+        //INGREDIENTES
+        //for(1 <= 15){
+            $cantIngred=$request->request->get('tb1');
+            $unidIngred=$request->request->get('tb11');
+            $ingred=$request->request->get('tb111');
+            
+            echo($cantIngred);
+            echo($unidIngred);
+            echo($ingred);
+            
+            //removeRecingr de lo que tiene y guardar nuevos
+        //}
+        //
+        $eIngreRec=new ingredrec();
+        $eIngreRec->setCantidad($cantIngred);
+        $eIngreRec->setUnidad($unidIngred);
+        
+        $eIngrediente = $em->getRepository('uniRecetasBundle:ingrediente')->findOneById($ingred);
+        if (!$eIngrediente) {
+            throw $this->createNotFoundException('Unable to find ingrediente relacionado.');
+        }
+        $eIngreRec->setIIngrediente($eIngrediente);
+        
+        $eIngreRec->setIReceta($eReceta);
+        
+        $eReceta->addRecingr($eIngreRec);
                 
         $em->persist($eReceta);
         $em->flush();                

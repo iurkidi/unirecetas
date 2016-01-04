@@ -164,7 +164,7 @@ ul#menu-horizontal li:hover ul{
 /* FIN ESTILOS MENU
 ******************/
 
-/* COLUMNAS*/
+/* COLUMNAS INDEX*/
 .col1{
     background-color: #FFFFFF;
     position: relative;
@@ -236,6 +236,44 @@ ul#menu-horizontal li:hover ul{
     margin-bottom: 0;
     padding: 0;
 }
+
+/*COLUMNAS INDEX CAT*/
+/*.colizq{    
+    position: relative;
+    float:left;
+    width: 25%;
+    height: 25%;
+    overflow: auto;
+    display: block;
+    margin-left: 100px;
+    background-color: #FFFFFF !important;
+}*/
+
+.colcentral{
+    position: relative;
+    float:left;
+    width: 24%;
+    height: 25%;
+    overflow: auto;
+    display: block;
+    color: #FFFFFF !important;
+}
+
+.coldcha{   
+    position: relative;
+    float:left;
+    clear:right;
+    width: 22.5%;
+    height: 25%;
+    overflow: auto;
+    display: block;
+    color: #FFFFFF !important;
+/*    margin-right: 100px;*/
+/*    margin-bottom: 0;
+    padding: 0;*/
+/*    background-color: #FFFFFF !important;*/
+}
+
 /* FIN COLUMNAS*/
 .borde{
 	border-width: 7px !important;
@@ -280,8 +318,11 @@ ul#menu-horizontal li:hover ul{
 .ancho10por{ width: 10%;}
 .ancho30por{ width: 30%;}
 .ancho70por{ width: 70%;}
+.ancho100por{ width: 100% !important;}
 
 .alto10por{ height: 10%;}
+.alto25por{ height: 25%;}
+.alto50por{ height: 50%;}
 .alto100por{ height: 100%;}
 
 /* RESTO */

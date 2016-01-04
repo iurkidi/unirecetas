@@ -36,12 +36,12 @@ class ingredrec
     private $unidad;
     
     /**
-    * @ORM\ManyToOne(targetEntity="receta", inversedBy="recingr", cascade={"remove"})    
+    * @ORM\ManyToOne(targetEntity="receta", inversedBy="recingr", cascade={"persist"})    
     */
     protected $ireceta;
     
     /**
-    * @ORM\ManyToOne(targetEntity="ingrediente", inversedBy="recingr", cascade={"remove"})    
+    * @ORM\ManyToOne(targetEntity="ingrediente", inversedBy="recingr", cascade={"persist"})    
     */
     protected $iingrediente;
 
