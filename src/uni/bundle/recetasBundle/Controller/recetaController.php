@@ -200,7 +200,7 @@ class recetaController extends Controller
            );            
 
         return $this->render('uniRecetasBundle:receta:edit2.html.twig', array(
-            'entity'       => $eReceta,
+            'entity'       => $eReceta[0],
             'autores'      => $autores,
             'categorias'   => $categorias,
            'eingredientes' => $eingredientes,
