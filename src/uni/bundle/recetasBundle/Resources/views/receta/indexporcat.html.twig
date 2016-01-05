@@ -5,20 +5,20 @@
     {%if ecategoria is not null%}
     
     <h1> {{ecategoria.titulo}}</h1>     
-    <div class="LineaFormulario alto25por fondofotos"> 
+    <div class="LineaFormulario alto25por"> 
          
     {%set cont=0%}    
     {% for entity in recetas %}                  
             {%set cont=cont+1%}            
             {%if cont <=3%}                                      
-            <div class="colcentral borde">                        
+            <div class="colcentral bordeverde">                        
                     <h2><a href="{{path('receta_show',{'id': entity.id} )}}">
                                {{ entity.titulo  | truncate (18)}}
                         </a></h2>                   
                        <br> <img src="{{ asset('bundles/unirecetas/img/'~ entity.fotopeq  ~ '') }}"/>
             </div>              
             {%elseif cont ==4%}
-                <div class="coldcha borde">&nbsp;</div> 
+                <div class="coldcha bordeverde">&nbsp;</div> 
                 {%set cont=0%}
                 <h2><a href="{{path('receta_show',{'id': entity.id} )}}">
                                {{ entity.titulo  | truncate (18)}}

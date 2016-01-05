@@ -178,7 +178,8 @@ class recetaController extends Controller
 //        ));
 //        
         //3.- OBTENER DATOS PARA IR A LA PAGINA DE EDIT
-        //COMO RECOJO EL PRIMERO DE ESTA LISTA???
+        //
+        //COMO RECOJO EL PRIMERO DE ESTA LISTA??? Y SI HAY ALGUIEN MAS AÑADIENDO RECETAS?
         $eReceta = $em->getRepository('uniRecetasBundle:receta')->findBy(
              array(), 
              array('id' => 'DESC')
@@ -250,6 +251,8 @@ class recetaController extends Controller
      */
     public function updateRec2Action(Request $request)
     {        
+        //****UPDATE DATOS RECETA*****
+        
         $idReceta= $request->request->get('idReceta');
                 
         $em = $this->getDoctrine()->getManager();
@@ -280,31 +283,33 @@ class recetaController extends Controller
         }
         $eReceta->setAut($eAutor); 
         
-        $id= $request->request->get('idCatRec');
-        //echo($cat);        
+        $id= $request->request->get('idCatRec');            
         $eCat = $em->getRepository('uniRecetasBundle:categoria')->  findOneById($id);
         if (!$eCat) {
             throw $this->createNotFoundException('Unable to find categoria relacionado.');
         }
-        $eReceta->setCateg($eCat);      
+        $eReceta->setCateg($eCat);  
         
-        //INGREDIENTES
+        $em->persist($eReceta);
+        $em->flush(); 
         
-        //FALTA BORRAR INGREDIENTES ANTERIORES
-       // $eReceta->removeRecingr($eReceta.recingr);        
-//        for($j = 0; $j <=14; $j++){
-//           $eReceta->removeRecingr($eReceta->recingr[$j]);
-//        }
+        //*****INGREDIENTES******
         
-        for ($i = 1; $i <= 15; $i++) {
+        //BORRAR INGREDIENTES ANTERIORES       
+        foreach ($eReceta->getRecingr() as $r){
+            $em->remove($r);  
+        }
+        $em->flush();
+        
+        //VOLVER A AÑADIR LOS INGREDIENTES
+        for ($i = 1; $i <= 10; $i++) {
             $cantIngred=$request->request->get('tb'.$i);
             $unidIngred=$request->request->get('tb'.$i.$i);
-            $ingred=$request->request->get('tb'.$i.$i.$i);
-            
+            $ingred=$request->request->get('tb'.$i.$i.$i);            
 //            echo('tb'.$i.'/'.$cantIngred);
 //            echo('tb'.$i.$i.'/'.$unidIngred);
 //            echo('tb'.$i.$i.$i.'/'.$ingred);                        
-            if($cantIngred !=null){
+            if(($cantIngred !=null or $cantIngred !='') and $ingred!="-1"){
                 $eIngreRec=new ingredrec();
                 $eIngreRec->setCantidad($cantIngred);
                 $eIngreRec->setUnidad($unidIngred);
@@ -319,11 +324,12 @@ class recetaController extends Controller
 
                 $eReceta->addRecingr($eIngreRec);
             }            
-        }                
-                
+        }
+        
         $em->persist($eReceta);
-        $em->flush();                
-                   
+        $em->flush();                 
+               
+        //Retorno al show de la receta           
         $entity = $em->getRepository('uniRecetasBundle:receta')->findOneById($idReceta);
         return $this->render('uniRecetasBundle:receta:show.html.twig', array(
             'entity' => $entity,

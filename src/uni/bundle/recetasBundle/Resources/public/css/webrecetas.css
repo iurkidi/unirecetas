@@ -263,7 +263,7 @@ ul#menu-horizontal li:hover ul{
     position: relative;
     float:left;
     clear:right;
-    width: 22.5%;
+    width: 22.15%;
     height: 25%;
     overflow: auto;
     display: block;
@@ -279,6 +279,12 @@ ul#menu-horizontal li:hover ul{
 	border-width: 7px !important;
 	border-style: solid !important;
 	border-color: #FFFFFF !important;
+}
+
+.bordeverde{
+	border-width: 7px !important;
+	border-style: solid !important;
+	border-color: #136825 !important;
 }
 
 .imagencab{

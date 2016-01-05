@@ -58,34 +58,10 @@
         </div>
 
         <div class="LineaFormulario"></div>               
-                                          
-        {#<h2 class="izquierda separarIzq15">Ingredientes</h2>
-            <p class="izquierda">Seleccione los ingredientes con el siguiente formato: <i>200 gramos mantequilla</i>. 
-            Hay un limite de 15 ingredientes.</p>#}
-      {#  </div>#}
-        {#<div class="LineaFormulario"></div>
-        Añadir ingredientes:<div id="main" class="LineaFormulario">
-            <input type="button" id="btAdd" value="Añadir ingr." class="bt" />
-            <input type="button" id="btRemove" value="Eliminar ingr." class="bt" />
-            <input type="button" id="btRemoveAll" value="Eliminar todo" class="bt" /><br />
-        </div>#}                
-        
-        {#<div id="container" class="LineaFormulario izquierda">
-            {%for i in 1..15%}
-                <div id="{{'tb'~ i}}" class="LineaFormulario izquierda">
-                
-                        <input type=text size="1" name="{{'tb'~ i}}" value="" />
-                        <input type=text size="4" name="{{'tb'~ i~ i}}" value="" />
-                        <select name="{{'tb'~ i~ i~ i}}"> 
-                        {% for entity in eingredientes %}
-                            <option value="{{ entity.id }}">{{ entity.nombre }}</option>                        
-                        {% endfor %}
-                        </select>
-                </div>
-                
-            {% endfor%}
-        </div>#}
-        {#<input type=button class="bt" onclick="GetTextValue()" id="btSubmit" value="Enviar" />#}
+        <div class="LineaFormulario">                                
+            <h2 class="izquierda separarIzq15">Ingredientes</h2>
+            <p class="izquierda">Los ingredientes se informarán una vez guardados los datos básicos de la receta.</p>
+        </div>       
         
         <div class="LineaFormulario"></div>
         <div class="LineaFormulario"></div>

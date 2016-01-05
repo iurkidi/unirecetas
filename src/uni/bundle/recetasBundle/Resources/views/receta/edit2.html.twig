@@ -84,38 +84,40 @@
                                           
         <h2 class="izquierda separarIzq15">Ingredientes</h2>
             <p class="izquierda">Seleccione los ingredientes con el siguiente formato: <i>200 gramos mantequilla</i>. 
-            Hay un limite de 15 ingredientes.</p>                   
+            Hay un limite de 10 ingredientes.</p>                   
         
         <div id="container" class="LineaFormulario izquierda">
             {%set i=1%}           
                 {% for ing in entity.recingr%}            
-                <div class="LineaFormulario izquierda">
-                
-                        <input type=text size="1" name="{{'tb'~ i}}" value="{{ing.cantidad}}" />
-                        <input type=text size="4" name="{{'tb'~ i~ i}}" value="{{ing.unidad}}" />                          
-                            <select name="{{'tb'~ i~ i~ i}}"> 
-                         {% for ingred in eingredientes %}
-                             {%if ingred.id == ing.iingrediente.id%}
-                                <option value="{{ ingred.id }}" selected>{{ ingred.nombre }}</option>                        
-                             {%else%}
-                                 <option value="{{ ingred.id }}">{{ ingred.nombre }}</option>                        
-                             {%endif%}                             
-                        {% endfor %}
-                        </select>
-                </div>   
-                {%set i=i+1%}
+                    <div class="LineaFormulario izquierda">
+
+                            <input type=text size="1" name="{{'tb'~ i}}" value="{{ing.cantidad}}" />
+                            <input type=text size="4" name="{{'tb'~ i~ i}}" value="{{ing.unidad}}" />                          
+                                <select name="{{'tb'~ i~ i~ i}}"> 
+                                    <option value="-1">&nbsp;</option> 
+                             {% for ingred in eingredientes %}
+                                 {%if ingred.id == ing.iingrediente.id%}
+                                    <option value="{{ ingred.id }}" selected>{{ ingred.nombre }}</option>                        
+                                 {%else%}
+                                     <option value="{{ ingred.id }}">{{ ingred.nombre }}</option>                        
+                                 {%endif%}                             
+                            {% endfor %}
+                            </select>
+                    </div>   
+                    {%set i=i+1%}
                 {%endfor%}
-            {%for j in i..15%}
-                 <div class="LineaFormulario izquierda">                
-                        <input type=text size="1" name="{{'tb'~ j}}" value="" />
-                        <input type=text size="4" name="{{'tb'~ j~ j}}" value="" />
-                        <select name="{{'tb'~ j~ j~ j}}">                         
-                         {% for ingred in eingredientes %}                              
-                             <option value="{{ ingred.id }}">{{ ingred.nombre }}</option>                         
-                         {%endfor %}                        
-                        </select>
-                </div>
-            {%endfor %}
+                {%for j in i..10%}
+                    <div class="LineaFormulario izquierda">                
+                           <input type=text size="1" name="{{'tb'~ j}}" value="" />
+                           <input type=text size="4" name="{{'tb'~ j~ j}}" value="" />
+                           <select name="{{'tb'~ j~ j~ j}}">   
+                               <option value="-1">&nbsp;</option> 
+                            {% for ingred in eingredientes %}                              
+                                <option value="{{ ingred.id }}">{{ ingred.nombre }}</option>                         
+                            {%endfor %}                        
+                           </select>
+                   </div>
+                {%endfor %}
         </div>        
         
         <div class="LineaFormulario"></div>
