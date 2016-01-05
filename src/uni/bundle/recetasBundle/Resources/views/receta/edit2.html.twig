@@ -87,25 +87,35 @@
             Hay un limite de 15 ingredientes.</p>                   
         
         <div id="container" class="LineaFormulario izquierda">
-            {%for i in 1..15%}
-                <div id="{{'tb'~ i}}" class="LineaFormulario izquierda">
+            {%set i=1%}           
+                {% for ing in entity.recingr%}            
+                <div class="LineaFormulario izquierda">
                 
-                        <input type=text size="1" name="{{'tb'~ i}}" value="" />
-                        <input type=text size="4" name="{{'tb'~ i~ i}}" value="" />
-                        <select name="{{'tb'~ i~ i~ i}}"> 
-                        {% for ingred in eingredientes %}   
-                            {% for ing in entity.recingr%}
-                         {%if ingred.id == ing.iingrediente.id%}
-                            <option value="{{ ingred.id }}" selected>{{ ingred.nombre }}</option>                        
-                         {%else%}
-                             <option value="{{ ingred.id }}">{{ ingred.nombre }}</option>                        
-                         {%endif%}
-                         {% endfor %}
+                        <input type=text size="1" name="{{'tb'~ i}}" value="{{ing.cantidad}}" />
+                        <input type=text size="4" name="{{'tb'~ i~ i}}" value="{{ing.unidad}}" />                          
+                            <select name="{{'tb'~ i~ i~ i}}"> 
+                         {% for ingred in eingredientes %}
+                             {%if ingred.id == ing.iingrediente.id%}
+                                <option value="{{ ingred.id }}" selected>{{ ingred.nombre }}</option>                        
+                             {%else%}
+                                 <option value="{{ ingred.id }}">{{ ingred.nombre }}</option>                        
+                             {%endif%}                             
                         {% endfor %}
                         </select>
+                </div>   
+                {%set i=i+1%}
+                {%endfor%}
+            {%for j in i..15%}
+                 <div class="LineaFormulario izquierda">                
+                        <input type=text size="1" name="{{'tb'~ j}}" value="" />
+                        <input type=text size="4" name="{{'tb'~ j~ j}}" value="" />
+                        <select name="{{'tb'~ j~ j~ j}}">                         
+                         {% for ingred in eingredientes %}                              
+                             <option value="{{ ingred.id }}">{{ ingred.nombre }}</option>                         
+                         {%endfor %}                        
+                        </select>
                 </div>
-                
-            {% endfor%}
+            {%endfor %}
         </div>        
         
         <div class="LineaFormulario"></div>

@@ -155,47 +155,55 @@ class recetaController extends Controller
         }
         $eReceta->setCateg($eCat);   
         
-        //INGREDIENTES
-        //for(1 <= 15){
-            $cantIngred=$request->request->get('tb1');
-            $unidIngred=$request->request->get('tb11');
-            $ingred=$request->request->get('tb111');
-            
-            echo($cantIngred);
-            echo($unidIngred);
-            echo($ingred);
-        //}
-//        $eIngreRec=new ingredrec();
-//        $eIngreRec->setCantidad($cantIngred);
-//        $eIngreRec->setUnidad($unidIngred);
-//        
-//        $eIngrediente = $em->getRepository('uniRecetasBundle:ingrediente')->findOneById($ingred);
-//        if (!$eIngrediente) {
-//            throw $this->createNotFoundException('Unable to find ingrediente relacionado.');
-//        }
-//        $eIngreRec->setIIngrediente($eIngrediente);
-//        
-//        $eIngreRec->setIReceta();
-//        
-//        $eReceta->addRecingr($eIngreRec);
+        //INGREDIENTES. En este punto no se guardan, despues del alta se va a Editar
                 
         $em->persist($eReceta);
         $em->flush();
 
 //        $eRecetas = $em->getRepository('uniRecetasBundle:receta')->  findByCateg($id);                       
-//        DA ERROR AL REDIRIGIR A INDEXCATEGORIA
+//        1.- DA ERROR AL REDIRIGIR A INDEXCATEGORIA
 //        return $this->render('uniRecetasBundle:receta:indexporcat.html.twig', array(
 //            'recetas' => $eRecetas,
 //            'ecategoria' => $eCat,
 //            'categoria' => $id,
 //        ));
         
-        $entities = $em->getRepository('uniRecetasBundle:receta')->findBy(
+        //2.- REDIRECCION A INDEX
+//        $entities = $em->getRepository('uniRecetasBundle:receta')->findBy(
+//             array(), 
+//             array('fechaPub' => 'DESC')
+//           );
+//        return $this->render('uniRecetasBundle:receta:index.html.twig', array(
+//            'entities' => $entities,
+//        ));
+//        
+        //3.- OBTENER DATOS PARA IR A LA PAGINA DE EDIT
+        //COMO RECOJO EL PRIMERO DE ESTA LISTA???
+        $eReceta = $em->getRepository('uniRecetasBundle:receta')->findBy(
              array(), 
-             array('fechaPub' => 'DESC')
+             array('id' => 'DESC')
+           );         
+        
+        $autores = $em->getRepository('uniRecetasBundle:autor')->findBy(
+             array(), 
+             array('apellidos' => 'ASC','nombre' => 'ASC')
            );
-        return $this->render('uniRecetasBundle:receta:index.html.twig', array(
-            'entities' => $entities,
+        
+         $categorias = $em->getRepository('uniRecetasBundle:categoria')->findBy(
+             array(), 
+             array('titulo' => 'ASC')
+           );
+         
+         $eingredientes = $em->getRepository('uniRecetasBundle:ingrediente')->findBy(
+             array(), 
+             array('nombre' => 'ASC')
+           );            
+
+        return $this->render('uniRecetasBundle:receta:edit2.html.twig', array(
+            'entity'       => $eReceta,
+            'autores'      => $autores,
+            'categorias'   => $categorias,
+           'eingredientes' => $eingredientes,
         ));
     }
     
@@ -281,31 +289,37 @@ class recetaController extends Controller
         $eReceta->setCateg($eCat);      
         
         //INGREDIENTES
-        //for(1 <= 15){
-            $cantIngred=$request->request->get('tb1');
-            $unidIngred=$request->request->get('tb11');
-            $ingred=$request->request->get('tb111');
+        
+        //FALTA BORRAR INGREDIENTES ANTERIORES
+       // $eReceta->removeRecingr($eReceta.recingr);        
+//        for($j = 0; $j <=14; $j++){
+//           $eReceta->removeRecingr($eReceta->recingr[$j]);
+//        }
+        
+        for ($i = 1; $i <= 15; $i++) {
+            $cantIngred=$request->request->get('tb'.$i);
+            $unidIngred=$request->request->get('tb'.$i.$i);
+            $ingred=$request->request->get('tb'.$i.$i.$i);
             
-            echo($cantIngred);
-            echo($unidIngred);
-            echo($ingred);
-            
-            //removeRecingr de lo que tiene y guardar nuevos
-        //}
-        //
-        $eIngreRec=new ingredrec();
-        $eIngreRec->setCantidad($cantIngred);
-        $eIngreRec->setUnidad($unidIngred);
-        
-        $eIngrediente = $em->getRepository('uniRecetasBundle:ingrediente')->findOneById($ingred);
-        if (!$eIngrediente) {
-            throw $this->createNotFoundException('Unable to find ingrediente relacionado.');
-        }
-        $eIngreRec->setIIngrediente($eIngrediente);
-        
-        $eIngreRec->setIReceta($eReceta);
-        
-        $eReceta->addRecingr($eIngreRec);
+//            echo('tb'.$i.'/'.$cantIngred);
+//            echo('tb'.$i.$i.'/'.$unidIngred);
+//            echo('tb'.$i.$i.$i.'/'.$ingred);                        
+            if($cantIngred !=null){
+                $eIngreRec=new ingredrec();
+                $eIngreRec->setCantidad($cantIngred);
+                $eIngreRec->setUnidad($unidIngred);
+
+                $eIngrediente = $em->getRepository('uniRecetasBundle:ingrediente')->findOneById($ingred);
+                if (!$eIngrediente) {
+                    throw $this->createNotFoundException('Unable to find ingrediente relacionado.');
+                }
+                $eIngreRec->setIIngrediente($eIngrediente);
+
+                $eIngreRec->setIReceta($eReceta);
+
+                $eReceta->addRecingr($eIngreRec);
+            }            
+        }                
                 
         $em->persist($eReceta);
         $em->flush();                
