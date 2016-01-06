@@ -164,7 +164,7 @@ ul#menu-horizontal li:hover ul{
 /* FIN ESTILOS MENU
 ******************/
 
-/* COLUMNAS*/
+/* COLUMNAS INDEX*/
 .col1{
     background-color: #FFFFFF;
     position: relative;
@@ -236,11 +236,40 @@ ul#menu-horizontal li:hover ul{
     margin-bottom: 0;
     padding: 0;
 }
+
+/*COLUMNAS INDEX CAT*/
+.colcentral{
+    position: relative;
+    float:left;
+    width: 24%;
+    height: 25%;
+    overflow: auto;
+    display: block;
+    color: #FFFFFF !important;
+}
+
+.coldcha{   
+    position: relative;
+    float:left;
+    clear:right;
+    width: 22.15%;
+    height: 25%;
+    overflow: auto;
+    display: block;
+    color: #FFFFFF !important;
+}
+
 /* FIN COLUMNAS*/
 .borde{
 	border-width: 7px !important;
 	border-style: solid !important;
 	border-color: #FFFFFF !important;
+}
+
+.bordeverde{
+	border-width: 7px !important;
+	border-style: solid !important;
+	border-color: #136825 !important;
 }
 
 .imagencab{
@@ -260,11 +289,9 @@ ul#menu-horizontal li:hover ul{
 #notaingred{
     position: relative;
     display: block;
-/*    height: 20%;*/
     margin: 2px 0px;
     padding: 0px;
     clear: both;
-/*    float: left;*/
     width: 98%;
     border: 0px none;
     background-repeat:no-repeat;
@@ -280,8 +307,11 @@ ul#menu-horizontal li:hover ul{
 .ancho10por{ width: 10%;}
 .ancho30por{ width: 30%;}
 .ancho70por{ width: 70%;}
+.ancho100por{ width: 100% !important;}
 
 .alto10por{ height: 10%;}
+.alto25por{ height: 25%;}
+.alto50por{ height: 50%;}
 .alto100por{ height: 100%;}
 
 /* RESTO */
