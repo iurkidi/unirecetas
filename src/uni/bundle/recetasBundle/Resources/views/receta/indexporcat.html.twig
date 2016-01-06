@@ -7,24 +7,22 @@
     <h1> {{ecategoria.titulo}}</h1>     
     <div class="LineaFormulario alto25por"> 
          
-    {%set cont=0%}    
-    {% for entity in recetas %}                  
+    {%set cont=0%}  
+    {%set estilo=''%}
+    {% for entity in recetas %}    
             {%set cont=cont+1%}            
-            {%if cont <=3%}                                      
-            <div class="colcentral bordeverde">                        
+            {%if cont <=3%}  
+                {%set estilo='colcentral bordeverde'%}
+            {%elseif cont ==4%}
+                {%set estilo='coldcha bordeverde'%}
+                {%set cont=0%}
+            {%endif%}
+            <div class="{{estilo}}">                        
                     <h2><a href="{{path('receta_show',{'id': entity.id} )}}">
                                {{ entity.titulo  | truncate (18)}}
                         </a></h2>                   
                        <br> <img src="{{ asset('bundles/unirecetas/img/'~ entity.fotopeq  ~ '') }}"/>
-            </div>              
-            {%elseif cont ==4%}
-                <div class="coldcha bordeverde">&nbsp;</div> 
-                {%set cont=0%}
-                <h2><a href="{{path('receta_show',{'id': entity.id} )}}">
-                               {{ entity.titulo  | truncate (18)}}
-                        </a></h2>                   
-                       <br> <img src="{{ asset('bundles/unirecetas/img/'~ entity.fotopeq  ~ '') }}"/>
-            {%endif%}   
+            </div>                          
     {% endfor %}   
     </div>
     {% endif %}

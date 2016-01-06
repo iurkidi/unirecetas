@@ -238,17 +238,6 @@ ul#menu-horizontal li:hover ul{
 }
 
 /*COLUMNAS INDEX CAT*/
-/*.colizq{    
-    position: relative;
-    float:left;
-    width: 25%;
-    height: 25%;
-    overflow: auto;
-    display: block;
-    margin-left: 100px;
-    background-color: #FFFFFF !important;
-}*/
-
 .colcentral{
     position: relative;
     float:left;
@@ -268,10 +257,6 @@ ul#menu-horizontal li:hover ul{
     overflow: auto;
     display: block;
     color: #FFFFFF !important;
-/*    margin-right: 100px;*/
-/*    margin-bottom: 0;
-    padding: 0;*/
-/*    background-color: #FFFFFF !important;*/
 }
 
 /* FIN COLUMNAS*/
@@ -304,11 +289,9 @@ ul#menu-horizontal li:hover ul{
 #notaingred{
     position: relative;
     display: block;
-/*    height: 20%;*/
     margin: 2px 0px;
     padding: 0px;
     clear: both;
-/*    float: left;*/
     width: 98%;
     border: 0px none;
     background-repeat:no-repeat;
