@@ -1,12 +1,10 @@
 {% extends 'uniRecetasBundle::layout.html.twig' %}
 
 {% block central -%}
-        <h1>Error en la ejecución del probgrama</h1>
+        <h1>Error en la ejecución del programa</h1>
         <h2>The server returned a "{{ status_code }} {{ status_text }}".</h2>
 
         <div class="LineaFormulario">
-            Something is broken. Please e-mail us at [email] and let us know
-            what you were doing when this error occurred. We will fix it as soon
-            as possible. Sorry for any inconvenience caused.
+            <img src="{{ asset('bundles/unirecetas/img/error.jpeg') }}"/>
         </div>
 {% endblock %}
