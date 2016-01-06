@@ -27,7 +27,7 @@ class recetaController extends Controller
 //        $entities = $em->getRepository('uniRecetasBundle:receta')->findAll();        
         $entities = $em->getRepository('uniRecetasBundle:receta')->findBy(
              array(), 
-             array('fechaPub' => 'DESC')
+             array('id' => 'DESC')
            );
 
         return $this->render('uniRecetasBundle:receta:index.html.twig', array(
