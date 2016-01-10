@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * receta
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="uni\bundle\recetasBundle\Entity\RecetasRepository")
  */
 class receta
 {
@@ -309,5 +309,81 @@ class receta
     {
         return $this->recingr;
     }
+    
+    //SUBIDAS
 
+	    public function getAbsolutePath() {
+
+	        return null === $this->image ? null : $this->getUploadRootDir() . '/' . $this->image;
+
+	    }
+
+	 
+
+	    public function getWebPath() {
+
+	        return null === $this->image ? null : $this->getUploadDir() . '/' . $this->image;
+
+	    }
+
+	 
+
+	    public function getUploadRootDir() {
+
+	        //return __DIR__ . '/../../../../web/' . $this->getUploadDir();
+                return __DIR__ . '/../../../../web/bundles/unirecetas/img' . $this->getUploadDir();
+
+	    }
+
+	 
+
+	    protected function getUploadDir() {
+
+	        return 'uploads';
+
+	    }
+
+	 
+
+	    public function upload() {
+
+	         
+
+	        if (null === $this->getImage()) {
+
+	            return;
+
+	        }
+
+	 
+
+	        $this->getImage()->move(
+
+	                $this->getUploadRootDir(), $this->getImage()->getClientOriginalName()
+
+	        );
+
+	 
+
+	        $this->image = $this->getImage()->getClientOriginalName();
+
+	 
+
+	        $this->file = null;
+
+	    }
+
+	 
+
+	    public function removeUpload()
+
+	    {
+
+	        if ($file = $this->getAbsolutePath()) {
+
+	            unlink($file);
+
+	        }
+
+	    }
 }

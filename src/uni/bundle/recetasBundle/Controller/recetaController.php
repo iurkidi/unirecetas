@@ -5,6 +5,7 @@ namespace uni\bundle\recetasBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+//use uni\bundle\recetasBundle\Entity\RecetasRepository;
 use uni\bundle\recetasBundle\Entity\receta;
 use uni\bundle\recetasBundle\Entity\ingredrec;
 use uni\bundle\recetasBundle\Form\recetaType;
@@ -30,6 +31,8 @@ class recetaController extends Controller
              array('id' => 'DESC')
            );
 
+//        $entities = $em->getRepository('uniRecetasBundle:Recetas')->findAllOrderedById();
+        
         return $this->render('uniRecetasBundle:receta:index.html.twig', array(
             'entities' => $entities,
         ));
@@ -132,6 +135,8 @@ class recetaController extends Controller
         
         $fotop= $request->request->get('fotop');
         $eReceta->setFotoPeq($fotop);
+        
+        $eReceta->upload($fotop);
         
         $eReceta->setFechaPub(new \DateTime("now"));
         
