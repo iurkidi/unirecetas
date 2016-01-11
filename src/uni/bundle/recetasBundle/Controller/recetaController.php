@@ -137,7 +137,7 @@ class recetaController extends Controller
         $fotop= $request->request->get('fotop');
         $eReceta->setFotoPeq($fotop);
         
-        $eReceta->upload($fotop);
+        //$eReceta->upload($fotop);
         
         $eReceta->setFechaPub(new \DateTime("now"));
         
