@@ -5,7 +5,7 @@ namespace uni\bundle\recetasBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-//use uni\bundle\recetasBundle\Entity\RecetasRepository;
+//use uni\bundle\recetasBundle\Entity\RecetaRepository;
 use uni\bundle\recetasBundle\Entity\receta;
 use uni\bundle\recetasBundle\Entity\ingredrec;
 use uni\bundle\recetasBundle\Form\recetaType;
@@ -31,7 +31,8 @@ class recetaController extends Controller
              array('id' => 'DESC')
            );
 
-//        $entities = $em->getRepository('uniRecetasBundle:Recetas')->findAllOrderedById();
+//        $entities = $this->getDoctrine()->getRepository('uniRecetasBundle:RecetaRepository')->findAllOrderedById();
+//        $entities = $this->getDoctrine()->getRepository('uni\bundle\recetasBundle\Entity\RecetaRepository')->findAllOrderedById();
         
         return $this->render('uniRecetasBundle:receta:index.html.twig', array(
             'entities' => $entities,
@@ -164,6 +165,8 @@ class recetaController extends Controller
                 
         $em->persist($eReceta);
         $em->flush();
+        
+        $eReceta->upload();
 
 //        $eRecetas = $em->getRepository('uniRecetasBundle:receta')->  findByCateg($id);                       
 //        1.- DA ERROR AL REDIRIGIR A INDEXCATEGORIA

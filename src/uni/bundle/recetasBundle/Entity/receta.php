@@ -4,12 +4,13 @@ namespace uni\bundle\recetasBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * receta
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="uni\bundle\recetasBundle\Entity\RecetasRepository")
+ * @ORM\Entity(repositoryClass="uni\bundle\recetasBundle\Entity\RecetaRepository")
  */
 class receta
 {
@@ -312,78 +313,65 @@ class receta
     
     //SUBIDAS
 
-	    public function getAbsolutePath() {
+    public function getAbsolutePath() {
 
-	        return null === $this->image ? null : $this->getUploadRootDir() . '/' . $this->image;
+        return null === $this->image ? null : $this->getUploadRootDir() . '/' . $this->image;
 
-	    }
+    }
 
-	 
+    public function getWebPath() {
 
-	    public function getWebPath() {
+        return null === $this->image ? null : $this->getUploadDir() . '/' . $this->image;
 
-	        return null === $this->image ? null : $this->getUploadDir() . '/' . $this->image;
+    }
 
-	    }
+    public function getUploadRootDir() {
 
-	 
+        //return __DIR__ . '/../../../../web/' . $this->getUploadDir();
+        return __DIR__ . '/../../../../web/bundles/unirecetas/img' . $this->getUploadDir();
 
-	    public function getUploadRootDir() {
+    }	
 
-	        //return __DIR__ . '/../../../../web/' . $this->getUploadDir();
-                return __DIR__ . '/../../../../web/bundles/unirecetas/img' . $this->getUploadDir();
+    protected function getUploadDir() {
 
-	    }
+        return 'uploads';
 
-	 
+    }
 
-	    protected function getUploadDir() {
+    public function upload() {
 
-	        return 'uploads';
+       // the file property can be empty if the field is not required
+    if (null === $this->getFile()) {
+        return;
+    }
 
-	    }
+    // aquí usa el nombre de archivo original pero lo debes
+    // sanear al menos para evitar cualquier problema de seguridad
 
-	 
+    // move takes the target directory and then the
+    // target filename to move to
+    $this->getFile()->move(
+        $this->getUploadRootDir(),
+        $this->getFile()->getClientOriginalName()
+    );
 
-	    public function upload() {
+    // set the path property to the filename where you've saved the file
+    $this->path = $this->getFile()->getClientOriginalName();
 
-	         
+    // limpia la propiedad «file» ya que no la necesitas más
+    $this->file = null;
 
-	        if (null === $this->getImage()) {
+    }
+    
+    public function removeUpload()
 
-	            return;
+    {
 
-	        }
+        if ($file = $this->getAbsolutePath()) {
 
-	 
+            unlink($file);
 
-	        $this->getImage()->move(
+        }
 
-	                $this->getUploadRootDir(), $this->getImage()->getClientOriginalName()
-
-	        );
-
-	 
-
-	        $this->image = $this->getImage()->getClientOriginalName();
-
-	 
-
-	        $this->file = null;
-
-	    }
-
-	 
-
-	    public function removeUpload()
-
-	    {
-
-	        if ($file = $this->getAbsolutePath()) {
-
-	            unlink($file);
-
-	        }
-
-	    }
+    }
 }
