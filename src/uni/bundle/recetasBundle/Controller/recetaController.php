@@ -166,7 +166,7 @@ class recetaController extends Controller
         $em->persist($eReceta);
         $em->flush();
         
-        $eReceta->upload();
+        //$eReceta->upload();
 
 //        $eRecetas = $em->getRepository('uniRecetasBundle:receta')->  findByCateg($id);                       
 //        1.- DA ERROR AL REDIRIGIR A INDEXCATEGORIA
