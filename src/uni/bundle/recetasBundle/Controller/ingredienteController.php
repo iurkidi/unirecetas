@@ -23,7 +23,11 @@ class ingredienteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('uniRecetasBundle:ingrediente')->findAll();
+//        $entities = $em->getRepository('uniRecetasBundle:ingrediente')->findAll();
+        $entities = $em->getRepository('uniRecetasBundle:ingrediente')->findBy(
+             array(), 
+             array('nombre' => 'ASC')
+           );
 
         return $this->render('uniRecetasBundle:ingrediente:index.html.twig', array(
             'entities' => $entities,
